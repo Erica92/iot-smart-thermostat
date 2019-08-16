@@ -1,11 +1,13 @@
-Smart Thermostat Project
+# Smart Thermostat Project
 
-Politecnico di Milano - Internet Of things
+### Politecnico di Milano - Internet Of things
 
-Sergio Caprara
-Erica Tinti
 
-Instruction: 
+**Sergio Caprara**
+**Erica Tinti**
+
+
+#### Instruction:
 1. download smart-thermostat-project under the folder contiki-2.7
 2. inside the folder smart-thermostat-project/rpl-border-router execute make TARGET=sky
 3. inside the folder smart-thermostat-project/smart-thermostat execute make TARGET=sky smart-thermostat
