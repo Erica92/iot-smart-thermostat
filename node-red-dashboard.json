@@ -1,0 +1,344 @@
+[
+    {
+        "id": "94eb735f.44c2e",
+        "type": "tab",
+        "label": "Dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ccbcb195.d98fb8",
+        "type": "coap request",
+        "z": "94eb735f.44c2e",
+        "method": "GET",
+        "observe": false,
+        "url": "coap://[aaaa::212:7402:2:202]/temperature",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "COAP GET 1",
+        "x": 440,
+        "y": 100,
+        "wires": [
+            [
+                "3a252ef8.e493da",
+                "c3803880.4e8048"
+            ]
+        ]
+    },
+    {
+        "id": "3a252ef8.e493da",
+        "type": "debug",
+        "z": "94eb735f.44c2e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 720,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c3803880.4e8048",
+        "type": "ui_gauge",
+        "z": "94eb735f.44c2e",
+        "name": "",
+        "group": "96108e51.dbe338",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature 1",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "17",
+        "seg2": "24",
+        "x": 720,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "e5b5b617.b879f",
+        "type": "coap request",
+        "z": "94eb735f.44c2e",
+        "method": "GET",
+        "observe": false,
+        "url": "coap://[aaaa::212:7402:2:202]/temperature",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "COAP GET 2",
+        "x": 440,
+        "y": 440,
+        "wires": [
+            [
+                "8f540af2.703b68",
+                "c3fe6f9c.c09d5"
+            ]
+        ]
+    },
+    {
+        "id": "8f540af2.703b68",
+        "type": "debug",
+        "z": "94eb735f.44c2e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 720,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "2f033e3a.aece72",
+        "type": "ui_button",
+        "z": "94eb735f.44c2e",
+        "name": "",
+        "group": "ebb978a5.c8b99",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Get temperature",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "e5b5b617.b879f"
+            ]
+        ]
+    },
+    {
+        "id": "c3fe6f9c.c09d5",
+        "type": "ui_gauge",
+        "z": "94eb735f.44c2e",
+        "name": "",
+        "group": "ebb978a5.c8b99",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature 2",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "17",
+        "seg2": "24",
+        "x": 720,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "e3ba6b05.f8b17",
+        "type": "ui_switch",
+        "z": "94eb735f.44c2e",
+        "name": "",
+        "label": "Heater",
+        "group": "ebb978a5.c8b99",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 190,
+        "y": 500,
+        "wires": [
+            [
+                "716697a3.54fcb8"
+            ]
+        ]
+    },
+    {
+        "id": "cf6be375.2045f",
+        "type": "ui_switch",
+        "z": "94eb735f.44c2e",
+        "name": "",
+        "label": "Ventilation",
+        "group": "ebb978a5.c8b99",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 170,
+        "y": 560,
+        "wires": [
+            [
+                "9cc49984.733828"
+            ]
+        ]
+    },
+    {
+        "id": "f18db61.673a2c8",
+        "type": "ui_switch",
+        "z": "94eb735f.44c2e",
+        "name": "",
+        "label": "Air conditioning",
+        "group": "ebb978a5.c8b99",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 160,
+        "y": 620,
+        "wires": [
+            [
+                "7edeec4c.9bd694"
+            ]
+        ]
+    },
+    {
+        "id": "716697a3.54fcb8",
+        "type": "coap request",
+        "z": "94eb735f.44c2e",
+        "method": "PUT",
+        "observe": false,
+        "url": "coap://[aaaa::212:7402:2:202]/leds?color=r",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "HEAT 2",
+        "x": 420,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7edeec4c.9bd694",
+        "type": "coap request",
+        "z": "94eb735f.44c2e",
+        "method": "PUT",
+        "observe": false,
+        "url": "coap://[aaaa::212:7402:2:202]/leds?color=b",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "CONDITIONING 2",
+        "x": 450,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9cc49984.733828",
+        "type": "coap request",
+        "z": "94eb735f.44c2e",
+        "method": "PUT",
+        "observe": false,
+        "url": "coap://[aaaa::212:7402:2:202]/leds?color=g",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "VENTILATION 2",
+        "x": 440,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "882df3fd.42b9e8",
+        "type": "ui_button",
+        "z": "94eb735f.44c2e",
+        "name": "",
+        "group": "96108e51.dbe338",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Get temperature",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "ccbcb195.d98fb8"
+            ]
+        ]
+    },
+    {
+        "id": "96108e51.dbe338",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 1",
+        "tab": "b7f88835.424fe8",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "ebb978a5.c8b99",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 2",
+        "tab": "b7f88835.424fe8",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "b7f88835.424fe8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
