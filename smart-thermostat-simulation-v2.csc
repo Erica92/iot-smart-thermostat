@@ -170,10 +170,11 @@
       <skin>org.contikios.cooja.plugins.skins.TrafficVisualizerSkin</skin>
       <skin>org.contikios.cooja.plugins.skins.UDGMVisualizerSkin</skin>
       <skin>org.contikios.cooja.plugins.skins.MoteTypeVisualizerSkin</skin>
+      <skin>org.contikios.cooja.plugins.skins.LEDVisualizerSkin</skin>
       <viewport>4.9223163723256365 0.0 0.0 4.9223163723256365 4.7967739779282335 -75.64973476380038</viewport>
     </plugin_config>
     <width>400</width>
-    <z>3</z>
+    <z>1</z>
     <height>400</height>
     <location_x>1</location_x>
     <location_y>1</location_y>
@@ -186,7 +187,7 @@
       <coloring />
     </plugin_config>
     <width>712</width>
-    <z>1</z>
+    <z>2</z>
     <height>240</height>
     <location_x>400</location_x>
     <location_y>160</location_y>
@@ -230,7 +231,7 @@
       <bound>true</bound>
     </plugin_config>
     <width>362</width>
-    <z>2</z>
+    <z>3</z>
     <height>116</height>
     <location_x>803</location_x>
     <location_y>54</location_y>
