@@ -96,7 +96,7 @@
 #warning "Erbium example without CoAP-specifc functionality"
 #endif /* CoAP-specific example */
 
-#define DEBUG 0
+#define DEBUG 1
 #if DEBUG
 #define PRINTF(...) printf(__VA_ARGS__)
 #define PRINT6ADDR(addr) PRINTF("[%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x]", ((uint8_t *)addr)[0], ((uint8_t *)addr)[1], ((uint8_t *)addr)[2], ((uint8_t *)addr)[3], ((uint8_t *)addr)[4], ((uint8_t *)addr)[5], ((uint8_t *)addr)[6], ((uint8_t *)addr)[7], ((uint8_t *)addr)[8], ((uint8_t *)addr)[9], ((uint8_t *)addr)[10], ((uint8_t *)addr)[11], ((uint8_t *)addr)[12], ((uint8_t *)addr)[13], ((uint8_t *)addr)[14], ((uint8_t *)addr)[15])
@@ -108,9 +108,18 @@
 #endif
 //unsigned short rand_temp = 100;
 
-static uint8_t temp_set = 0;
-static unsigned short rand_temp;
-int rand_max = 20;
+static uint8_t temp_set = 0;	//???
+static unsigned short rand_temp;	//TODO da rimuovere ovunque
+const int rand_max = 20;
+
+typedef struct thermostat {
+	uint8_t heating;
+	uint8_t air_conditioning;
+	uint8_t ventilation;
+	unsigned short temp;
+} t_thermostat;
+
+static t_thermostat thermostat_status;
 
 /******************************************************************************/
 #if REST_RES_TEMP /* Codice progetto */
@@ -119,23 +128,22 @@ RESOURCE(temperature, METHOD_GET, "temperature", "title=\"Temperature sensor\";r
 void
 temperature_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
 {
-  
-  //int rand_max = 20;
-  
+
   /* Devo acquisire il dato della temperatura dal sensore */
   //uint16_t tempval = ((sht11_sensor.value(SHT11_SENSOR_TEMP) / 10) - 396) / 10;
-  
-  if (temp_set == 0) {
-    rand_temp = (random_rand() % rand_max) + 10;
-    temp_set = 1;
-  }
+
+  PRINTF("temperature_handler: %u", thermostat_status.temp);
   
   REST.set_header_content_type(response, REST.type.TEXT_PLAIN);
   //snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "%u", tempval);
-  snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "%u", rand_temp);
+  snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "%u", thermostat_status.temp);
   //REST.set_header_etag(response, (uint8_t *) &length, 1);
   REST.set_response_payload(response, (uint8_t *)buffer, strlen((char *)buffer));
 }
+#endif /*REST_RES_TEMP*/
+
+/*****************************************************/
+#if REST_RES_PUSHING
 
 PERIODIC_RESOURCE(tempup, METHOD_GET, "temperature/update", "title=\"Periodic demo\";obs", 5*CLOCK_SECOND);
 
@@ -144,7 +152,7 @@ tempup_handler(void* request, void* response, uint8_t *buffer, uint16_t preferre
 {
   REST.set_header_content_type(response, REST.type.TEXT_PLAIN);
   //REST.set_response_payload(response, msg, strlen(msg));
-  snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "%u", rand_temp++);
+  snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "%u", thermostat_status.temp);
   REST.set_response_payload(response, (uint8_t *)buffer, strlen((char *)buffer));
 }
 
@@ -167,7 +175,7 @@ tempup_periodic_handler(resource_t *r)
   REST.notify_subscribers(r, obs_counter, notification);
 }
 
-#endif /* REST_RES_TEMP */
+#endif /* REST_RES_PUSHING */
 
 /******************************************************************************/
 #if defined (PLATFORM_HAS_LEDS)
@@ -179,21 +187,33 @@ RESOURCE(leds, METHOD_POST | METHOD_PUT , "leds", "title=\"LEDs: ?color=r|g|b, P
 void
 leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
 {
-  size_t len = 0;
   const char *color = NULL;
   const char *mode = NULL;
   uint8_t led = 0;
   int success = 1;
+  uint8_t* unit_type_p = NULL;	//mantain the pointer to the type of engine to control
+  
+  /* retrieve the query variable for color */
+  size_t query_variable = REST.get_query_variable(request, "color", &color);
+  /* retrieve the query variable for mode on off */
+  size_t post_variable = REST.get_post_variable(request, "mode", &mode);
+  
 
-  if ((len=REST.get_query_variable(request, "color", &color))) {
+  if (query_variable) {
     //PRINTF("color %.*s\n", len, color);
 
-    if (strncmp(color, "r", len)==0) {
+    if (strncmp(color, "r", query_variable)==0) {
+    	//heating
       led = LEDS_RED;
-    } else if(strncmp(color,"g", len)==0) {
+      unit_type_p = &thermostat_status.heating;
+    } else if(strncmp(color,"g", query_variable)==0) {
+    	//ventilation
       led = LEDS_GREEN;
-    } else if (strncmp(color,"b", len)==0) {
+      unit_type_p = &thermostat_status.ventilation;
+    } else if (strncmp(color,"b", query_variable)==0) {
+    	//air conditioning
       led = LEDS_BLUE;
+      unit_type_p = &thermostat_status.air_conditioning;
     } else {
       success = 0;
     }
@@ -201,14 +221,17 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
     success = 0;
   }
 
-  if (success && (len=REST.get_post_variable(request, "mode", &mode))) {
+  if (success && post_variable) {
     //PRINTF("mode %s\n", mode);
 
-    if (strncmp(mode, "on", len)==0) {
+    if (strncmp(mode, "on", post_variable)==0) {
+    	//turn on the led and the corrisponding engine
       leds_on(led);
-      rand_temp++;
-    } else if (strncmp(mode, "off", len)==0) {
+      *unit_type_p = 1;
+    } else if (strncmp(mode, "off", post_variable)==0) {
+    	//turn off the led and the corrisponding engine
       leds_off(led);
+      *unit_type_p = 0;
     } else {
       success = 0;
     }
@@ -216,6 +239,7 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
     success = 0;
   }
 
+	//TODO gestire la mutua esclusione e l'errore ritornato
   if (!success) {
     REST.set_response_status(response, REST.status.BAD_REQUEST);
   }
@@ -224,6 +248,7 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
 
 /******************************************************************************/
 #if REST_RES_TOGGLE
+//TODO questo serve?
 /* A simple actuator example. Toggles the red led */
 RESOURCE(toggle, METHOD_POST, "/toggle", "title=\"Red LED\";rt=\"Control\"");
 void
@@ -517,17 +542,14 @@ sub_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_s
 /******************************************************************************/
 
 
-PROCESS(rest_server_example, "Erbium Example Server");
-AUTOSTART_PROCESSES(&rest_server_example);
+PROCESS(thermostat_server_process, "Smart Thermostat Server");
+AUTOSTART_PROCESSES(&thermostat_server_process);
 
-PROCESS_THREAD(rest_server_example, ev, data)
+PROCESS_THREAD(thermostat_server_process, ev, data)
 {
   
   PROCESS_BEGIN();
-  
-  temp_set = 0;
-  
-  PRINTF("Starting Erbium Example Server\n");
+
 
 #ifdef RF_CHANNEL
   PRINTF("RF channel: %u\n", RF_CHANNEL);
@@ -541,6 +563,7 @@ PROCESS_THREAD(rest_server_example, ev, data)
   PRINTF("IP+UDP header: %u\n", UIP_IPUDPH_LEN);
   PRINTF("REST max chunk: %u\n", REST_MAX_CHUNK_SIZE);
 
+
   /* Initialize the REST engine. */
   rest_init_engine();
 
@@ -553,13 +576,13 @@ PROCESS_THREAD(rest_server_example, ev, data)
 #if REST_RES_TEMP
   SENSORS_ACTIVATE(sht11_sensor);
   rest_activate_resource(&resource_temperature);
-  rest_activate_resource(&resource_tempup);
 #endif
 
 #if REST_RES_CHUNKS
   rest_activate_resource(&resource_chunks);
 #endif
 #if REST_RES_PUSHING
+  rest_activate_resource(&resource_tempup);
   rest_activate_periodic_resource(&periodic_resource_pushing);
 #endif
 #if defined (PLATFORM_HAS_BUTTON) && REST_RES_EVENT
@@ -589,9 +612,42 @@ PROCESS_THREAD(rest_server_example, ev, data)
   rest_activate_resource(&resource_battery);
 #endif
   
-  /* Define application-specific events here. */
+  /* Thermostat initialization */
+  
+  thermostat_status.heating = 0;
+  thermostat_status.air_conditioning = 0;
+  thermostat_status.ventilation = 0;
+  thermostat_status.temp = (random_rand() % rand_max) + 10;
+  
+  printf("Rand temp: %u\n", thermostat_status.temp);
+  
+  static struct etimer timer;
+  
+  /* Thermostat internal logic */
+  etimer_set(&timer, CLOCK_SECOND * 20);	//TODO 20 secondi
+    
   while(1) {
     PROCESS_WAIT_EVENT();
+    
+    //TODO rendere costanti tutti questi numeri
+    
+    if(ev == PROCESS_EVENT_TIMER){
+    	unsigned short vent_multiplier = 1;
+    	if(thermostat_status.ventilation == 1){
+    		vent_multiplier = 2;
+    	}
+    	
+    	if(thermostat_status.heating == 1 && thermostat_status.temp < 30){
+    		thermostat_status.temp += 1 * vent_multiplier; //TODO attenzione che puo far 31
+    	}
+    	
+    	if(thermostat_status.air_conditioning == 1 && thermostat_status.temp > 10){
+    		thermostat_status.temp -= 1 * vent_multiplier;  //TODO attenzione che puo far -1
+    	}
+    	
+    	etimer_reset(&timer);
+    }
+    
 #if defined (PLATFORM_HAS_BUTTON)
     if (ev == sensors_event && data == &button_sensor) {
       PRINTF("BUTTON\n");

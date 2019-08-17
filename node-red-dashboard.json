@@ -1,15 +1,250 @@
 [
     {
-        "id": "94eb735f.44c2e",
+        "id": "b5d1af96.0416f8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b06efc1e.75044",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "5b6227aa.3594c8",
         "type": "tab",
         "label": "Dashboard",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "ccbcb195.d98fb8",
+        "id": "8a9a8a88.ca1ed",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "5ad9849b.af6824",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 1",
+        "tab": "90f5ac2.d62c1d",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d9b77407.4d077",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 2",
+        "tab": "90f5ac2.d62c1d",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "90f5ac2.d62c1d",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "79d74e2c.30bb38",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 3",
+        "tab": "90f5ac2.d62c1d",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d1c7be24.25dca",
+        "type": "ui_group",
+        "name": "Group 4",
+        "tab": "90f5ac2.d62c1d",
+        "order": 4,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "5b219c84.ffd8a4",
+        "type": "json",
+        "z": "b5d1af96.0416f8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 240,
+        "y": 240,
+        "wires": [
+            [
+                "1582d559.f7a30b"
+            ]
+        ]
+    },
+    {
+        "id": "1582d559.f7a30b",
+        "type": "file",
+        "z": "b5d1af96.0416f8",
+        "name": "stampa su file",
+        "filename": "provaScritturaGet",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "x": 430,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "92804f7a.286ef",
+        "type": "inject",
+        "z": "b5d1af96.0416f8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "a22cb9fa.457118"
+            ]
+        ]
+    },
+    {
+        "id": "a22cb9fa.457118",
+        "type": "http request",
+        "z": "b5d1af96.0416f8",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "url": "https://api.thingspeak.com/channels/562389/feeds.json",
+        "tls": "",
+        "x": 80,
+        "y": 240,
+        "wires": [
+            [
+                "5b219c84.ffd8a4",
+                "ee95636c.a1731"
+            ]
+        ]
+    },
+    {
+        "id": "ee95636c.a1731",
+        "type": "debug",
+        "z": "b5d1af96.0416f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 440,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ab91e9a0.db502",
         "type": "coap request",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "method": "GET",
         "observe": false,
         "url": "coap://[aaaa::212:7402:2:202]/temperature",
@@ -20,15 +255,15 @@
         "y": 100,
         "wires": [
             [
-                "3a252ef8.e493da",
-                "c3803880.4e8048"
+                "f2c28a67.644158",
+                "ca98857c.d87bc"
             ]
         ]
     },
     {
-        "id": "3a252ef8.e493da",
+        "id": "f2c28a67.644158",
         "type": "debug",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -40,11 +275,11 @@
         "wires": []
     },
     {
-        "id": "c3803880.4e8048",
+        "id": "ca98857c.d87bc",
         "type": "ui_gauge",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "name": "",
-        "group": "96108e51.dbe338",
+        "group": "5ad9849b.af6824",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -66,9 +301,9 @@
         "wires": []
     },
     {
-        "id": "e5b5b617.b879f",
+        "id": "6aeadc42.fe6a74",
         "type": "coap request",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "method": "GET",
         "observe": false,
         "url": "coap://[aaaa::212:7402:2:202]/temperature",
@@ -79,15 +314,15 @@
         "y": 440,
         "wires": [
             [
-                "8f540af2.703b68",
-                "c3fe6f9c.c09d5"
+                "6572198c.e4b8",
+                "3e2be6ee.260f72"
             ]
         ]
     },
     {
-        "id": "8f540af2.703b68",
+        "id": "6572198c.e4b8",
         "type": "debug",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -99,11 +334,11 @@
         "wires": []
     },
     {
-        "id": "2f033e3a.aece72",
+        "id": "69348888.e46cf8",
         "type": "ui_button",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "name": "",
-        "group": "ebb978a5.c8b99",
+        "group": "d9b77407.4d077",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -119,16 +354,16 @@
         "y": 440,
         "wires": [
             [
-                "e5b5b617.b879f"
+                "6aeadc42.fe6a74"
             ]
         ]
     },
     {
-        "id": "c3fe6f9c.c09d5",
+        "id": "3e2be6ee.260f72",
         "type": "ui_gauge",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "name": "",
-        "group": "ebb978a5.c8b99",
+        "group": "d9b77407.4d077",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -150,12 +385,12 @@
         "wires": []
     },
     {
-        "id": "e3ba6b05.f8b17",
+        "id": "75700d8a.4315a4",
         "type": "ui_switch",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "name": "",
         "label": "Heater",
-        "group": "ebb978a5.c8b99",
+        "group": "d9b77407.4d077",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -175,17 +410,17 @@
         "y": 500,
         "wires": [
             [
-                "716697a3.54fcb8"
+                "ca9cdcfe.2408d8"
             ]
         ]
     },
     {
-        "id": "cf6be375.2045f",
+        "id": "131b947f.7d49b4",
         "type": "ui_switch",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "name": "",
         "label": "Ventilation",
-        "group": "ebb978a5.c8b99",
+        "group": "d9b77407.4d077",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -205,17 +440,17 @@
         "y": 560,
         "wires": [
             [
-                "9cc49984.733828"
+                "798bce8d.8288a8"
             ]
         ]
     },
     {
-        "id": "f18db61.673a2c8",
+        "id": "557f6522.adc3f4",
         "type": "ui_switch",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "name": "",
         "label": "Air conditioning",
-        "group": "ebb978a5.c8b99",
+        "group": "d9b77407.4d077",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -235,14 +470,14 @@
         "y": 620,
         "wires": [
             [
-                "7edeec4c.9bd694"
+                "1455d033.526548"
             ]
         ]
     },
     {
-        "id": "716697a3.54fcb8",
+        "id": "ca9cdcfe.2408d8",
         "type": "coap request",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7402:2:202]/leds?color=r",
@@ -256,9 +491,9 @@
         ]
     },
     {
-        "id": "7edeec4c.9bd694",
+        "id": "1455d033.526548",
         "type": "coap request",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7402:2:202]/leds?color=b",
@@ -272,9 +507,9 @@
         ]
     },
     {
-        "id": "9cc49984.733828",
+        "id": "798bce8d.8288a8",
         "type": "coap request",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7402:2:202]/leds?color=g",
@@ -288,11 +523,11 @@
         ]
     },
     {
-        "id": "882df3fd.42b9e8",
+        "id": "762fc667.f8066",
         "type": "ui_button",
-        "z": "94eb735f.44c2e",
+        "z": "5b6227aa.3594c8",
         "name": "",
-        "group": "96108e51.dbe338",
+        "group": "5ad9849b.af6824",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -308,37 +543,176 @@
         "y": 100,
         "wires": [
             [
-                "ccbcb195.d98fb8"
+                "ab91e9a0.db502"
             ]
         ]
     },
     {
-        "id": "96108e51.dbe338",
-        "type": "ui_group",
-        "z": "",
-        "name": "Room 1",
-        "tab": "b7f88835.424fe8",
-        "disp": true,
-        "width": "6",
-        "collapse": false
+        "id": "482b720b.33d4b4",
+        "type": "coap request",
+        "z": "5b6227aa.3594c8",
+        "method": "GET",
+        "observe": false,
+        "url": "coap://[aaaa::212:7405:5:505]/temperature",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "COAP GET 5",
+        "x": 400,
+        "y": 1040,
+        "wires": [
+            [
+                "56e0043d.6c5974",
+                "97b9bd41.aec6d8"
+            ]
+        ]
     },
     {
-        "id": "ebb978a5.c8b99",
-        "type": "ui_group",
-        "z": "",
-        "name": "Room 2",
-        "tab": "b7f88835.424fe8",
+        "id": "56e0043d.6c5974",
+        "type": "debug",
+        "z": "5b6227aa.3594c8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 680,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "97b9bd41.aec6d8",
+        "type": "ui_gauge",
+        "z": "5b6227aa.3594c8",
+        "name": "",
+        "group": "79d74e2c.30bb38",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature 5",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "17",
+        "seg2": "24",
+        "x": 680,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "c23bc17c.69b91",
+        "type": "ui_button",
+        "z": "5b6227aa.3594c8",
+        "name": "",
+        "group": "79d74e2c.30bb38",
         "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Get temperature 5",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 130,
+        "y": 1040,
+        "wires": [
+            [
+                "482b720b.33d4b4"
+            ]
+        ]
     },
     {
-        "id": "b7f88835.424fe8",
-        "type": "ui_tab",
-        "z": "",
-        "name": "Tab 1",
-        "icon": "dashboard",
-        "order": 1
+        "id": "b22c45ee.dd59a8",
+        "type": "coap request",
+        "z": "5b6227aa.3594c8",
+        "method": "GET",
+        "observe": false,
+        "url": "coap://[aaaa::212:7404:4:404]/temperature",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "COAP GET 4",
+        "x": 400,
+        "y": 880,
+        "wires": [
+            [
+                "b813a068.8abed8",
+                "82bce337.315e6"
+            ]
+        ]
+    },
+    {
+        "id": "b813a068.8abed8",
+        "type": "debug",
+        "z": "5b6227aa.3594c8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 680,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "82bce337.315e6",
+        "type": "ui_gauge",
+        "z": "5b6227aa.3594c8",
+        "name": "",
+        "group": "d1c7be24.25dca",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature 4",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "17",
+        "seg2": "24",
+        "x": 680,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "9f3b5edb.5c4fa8",
+        "type": "ui_button",
+        "z": "5b6227aa.3594c8",
+        "name": "",
+        "group": "d1c7be24.25dca",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Get temperature 4",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 130,
+        "y": 880,
+        "wires": [
+            [
+                "b22c45ee.dd59a8"
+            ]
+        ]
     }
 ]
