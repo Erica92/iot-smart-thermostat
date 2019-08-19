@@ -47,7 +47,7 @@
 #define REST_RES_HELLO 0
 #define REST_RES_CHUNKS 0
 #define REST_RES_SEPARATE 0
-#define REST_RES_PUSHING 0
+#define REST_RES_PUSHING 1
 #define REST_RES_EVENT 0
 #define REST_RES_SUB 0
 #define REST_RES_TOGGLE 0
@@ -55,7 +55,8 @@
 #define REST_RES_BATTERY 0
 
 #define REST_RES_LEDS 1
-#define REST_RES_TEMP 1
+#define REST_RES_TEMP 0
+#define REST_RES_STATUS 1
 #define PLATFORM_HAS_SHT11 1
 #define PLATFORM_HAS_LEDS 1
 
@@ -108,8 +109,6 @@
 #endif
 //unsigned short rand_temp = 100;
 
-static uint8_t temp_set = 0;	//???
-static unsigned short rand_temp;	//TODO da rimuovere ovunque
 const int rand_max = 20;
 
 typedef struct thermostat {
@@ -139,17 +138,20 @@ temperature_handler(void* request, void* response, uint8_t *buffer, uint16_t pre
   snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "%u", thermostat_status.temp);
   //REST.set_header_etag(response, (uint8_t *) &length, 1);
   REST.set_response_payload(response, (uint8_t *)buffer, strlen((char *)buffer));
+  //TODO bisogna gestire la CON
 }
 #endif /*REST_RES_TEMP*/
 
-/*****************************************************/
+/******************* temperature observe **********************************/
 #if REST_RES_PUSHING
 
-PERIODIC_RESOURCE(tempup, METHOD_GET, "temperature/update", "title=\"Periodic demo\";obs", 5*CLOCK_SECOND);
+PERIODIC_RESOURCE(tempobs, METHOD_GET, "temperature/observe", "title=\"Temperature observe\";obs", 5*CLOCK_SECOND);
 
 void
-tempup_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
+tempobs_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
 {
+//TODO Forse questo metodo risponde quando si registra. ma si deve registrare in automatico?
+	PRINTF("tempobs_handler: %u", thermostat_status.temp);
   REST.set_header_content_type(response, REST.type.TEXT_PLAIN);
   //REST.set_response_payload(response, msg, strlen(msg));
   snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "%u", thermostat_status.temp);
@@ -157,7 +159,7 @@ tempup_handler(void* request, void* response, uint8_t *buffer, uint16_t preferre
 }
 
 void
-tempup_periodic_handler(resource_t *r)
+tempobs_periodic_handler(resource_t *r)
 {
   static uint16_t obs_counter = 0;
   static char content[11];
@@ -169,13 +171,36 @@ tempup_periodic_handler(resource_t *r)
   /* Build notification. */
   coap_packet_t notification[1]; /* This way the packet can be treated as pointer as usual. */
   coap_init_message(notification, COAP_TYPE_NON, REST.status.OK, 0 );
-  coap_set_payload(notification, content, snprintf(content, sizeof(content), "TICK %u", obs_counter));
+  coap_set_payload(notification, content, snprintf(content, sizeof(content), "%u", thermostat_status.temp));
 
   /* Notify the registered observers with the given message type, observe option, and payload. */
   REST.notify_subscribers(r, obs_counter, notification);
 }
 
 #endif /* REST_RES_PUSHING */
+
+/********************** STATUS **************************/
+#if REST_RES_STATUS
+
+RESOURCE(status, METHOD_GET, "status", "title=\"Thermostat status\";rt=\"Data\"");
+
+void
+status_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
+{
+	PRINTF("status_handler: %u", thermostat_status.temp);
+	//char heating_status[3] = (thermostat_status.heating == 1 ? "on" : "off");
+	//char air_conditioning_status[3] = (thermostat_status.air_conditioning == 1 ? "on" : "off");
+	//char ventilation_status[3] = (thermostat_status.ventilation == 1 ? "on" : "off");
+	
+  REST.set_header_content_type(response, REST.type.APPLICATION_JSON);
+
+  snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "{\"heating\": %u, \"air conditioning\": %u, \"ventilation\": %u}", thermostat_status.heating, thermostat_status.air_conditioning, thermostat_status.ventilation);
+  
+  REST.set_response_payload(response, (uint8_t *)buffer, strlen((char *)buffer));
+  //TODO bisogna gestire la CON
+}
+
+#endif /* REST_RES_STATUS */
 
 /******************************************************************************/
 #if defined (PLATFORM_HAS_LEDS)
@@ -420,50 +445,6 @@ separate_finalize_handler()
 }
 #endif
 
-/******************************************************************************/
-#if REST_RES_PUSHING
-/*
- * Example for a periodic resource.
- * It takes an additional period parameter, which defines the interval to call [name]_periodic_handler().
- * A default post_handler takes care of subscriptions by managing a list of subscribers to notify.
- */
-PERIODIC_RESOURCE(pushing, METHOD_GET, "test/push", "title=\"Periodic demo\";obs", 5*CLOCK_SECOND);
-
-void
-pushing_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
-{
-  REST.set_header_content_type(response, REST.type.TEXT_PLAIN);
-
-  /* Usually, a CoAP server would response with the resource representation matching the periodic_handler. */
-  const char *msg = "It's periodic!";
-  REST.set_response_payload(response, msg, strlen(msg));
-
-  /* A post_handler that handles subscriptions will be called for periodic resources by the REST framework. */
-}
-
-/*
- * Additionally, a handler function named [resource name]_handler must be implemented for each PERIODIC_RESOURCE.
- * It will be called by the REST manager process with the defined period.
- */
-void
-pushing_periodic_handler(resource_t *r)
-{
-  static uint16_t obs_counter = 0;
-  static char content[11];
-
-  ++obs_counter;
-
-  PRINTF("TICK %u for /%s\n", obs_counter, r->url);
-
-  /* Build notification. */
-  coap_packet_t notification[1]; /* This way the packet can be treated as pointer as usual. */
-  coap_init_message(notification, COAP_TYPE_NON, REST.status.OK, 0 );
-  coap_set_payload(notification, content, snprintf(content, sizeof(content), "TICK %u", obs_counter));
-
-  /* Notify the registered observers with the given message type, observe option, and payload. */
-  REST.notify_subscribers(r, obs_counter, notification);
-}
-#endif
 
 /******************************************************************************/
 #if REST_RES_EVENT && defined (PLATFORM_HAS_BUTTON)
@@ -578,12 +559,15 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
   rest_activate_resource(&resource_temperature);
 #endif
 
+#if REST_RES_STATUS
+  rest_activate_resource(&resource_status);
+#endif
+
 #if REST_RES_CHUNKS
   rest_activate_resource(&resource_chunks);
 #endif
 #if REST_RES_PUSHING
-  rest_activate_resource(&resource_tempup);
-  rest_activate_periodic_resource(&periodic_resource_pushing);
+  rest_activate_periodic_resource(&periodic_resource_tempobs);
 #endif
 #if defined (PLATFORM_HAS_BUTTON) && REST_RES_EVENT
   rest_activate_event_resource(&resource_event);
@@ -625,6 +609,7 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
   
   /* Thermostat internal logic */
   etimer_set(&timer, CLOCK_SECOND * 20);	//TODO 20 secondi
+  //TODO questa versione basic: si puo evitare che si svegli ogni 20 sec se in stand by
     
   while(1) {
     PROCESS_WAIT_EVENT();

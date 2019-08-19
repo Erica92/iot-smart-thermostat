@@ -246,8 +246,8 @@
         "type": "coap request",
         "z": "5b6227aa.3594c8",
         "method": "GET",
-        "observe": false,
-        "url": "coap://[aaaa::212:7402:2:202]/temperature",
+        "observe": true,
+        "url": "coap://[aaaa::212:7402:2:202]/temperature/observe",
         "content-format": "text/plain",
         "raw-buffer": false,
         "name": "COAP GET 1",
@@ -305,8 +305,8 @@
         "type": "coap request",
         "z": "5b6227aa.3594c8",
         "method": "GET",
-        "observe": false,
-        "url": "coap://[aaaa::212:7402:2:202]/temperature",
+        "observe": true,
+        "url": "coap://[aaaa::212:7402:2:202]/temperature/observe",
         "content-format": "text/plain",
         "raw-buffer": false,
         "name": "COAP GET 2",
@@ -713,6 +713,78 @@
             [
                 "b22c45ee.dd59a8"
             ]
+        ]
+    },
+    {
+        "id": "4c574c1b.98ac74",
+        "type": "ui_button",
+        "z": "5b6227aa.3594c8",
+        "name": "",
+        "group": "d9b77407.4d077",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "get status 2",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 150,
+        "y": 700,
+        "wires": [
+            [
+                "73f3636d.9faedc"
+            ]
+        ]
+    },
+    {
+        "id": "73f3636d.9faedc",
+        "type": "coap request",
+        "z": "5b6227aa.3594c8",
+        "method": "GET",
+        "observe": false,
+        "url": "coap://[aaaa::212:7402:2:202]/status",
+        "content-format": "application/json",
+        "raw-buffer": false,
+        "name": "",
+        "x": 360,
+        "y": 700,
+        "wires": [
+            [
+                "b044bfde.9e7ef",
+                "f89ca2dc.2f5368"
+            ]
+        ]
+    },
+    {
+        "id": "b044bfde.9e7ef",
+        "type": "debug",
+        "z": "5b6227aa.3594c8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 570,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "f89ca2dc.2f5368",
+        "type": "json",
+        "z": "5b6227aa.3594c8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 560,
+        "y": 760,
+        "wires": [
+            []
         ]
     }
 ]
