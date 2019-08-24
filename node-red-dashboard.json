@@ -1,22 +1,22 @@
 [
     {
-        "id": "6be78bf1.74a41c",
+        "id": "f92e3b70.f82b28",
         "type": "tab",
         "label": "Temperature observe",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "d2732bf5.cd5b98",
+        "id": "dde85846.b3fc9",
         "type": "tab",
         "label": "Controls management",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "3c3bb638.fd3782",
+        "id": "2e84e2be.2f24e6",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Thingspeak publication",
         "disabled": false,
         "info": ""
     },
@@ -110,29 +110,207 @@
         }
     },
     {
-        "id": "a9142568.55f728",
+        "id": "5ad9849b.af6824",
         "type": "ui_group",
         "z": "",
         "name": "Room 1",
-        "tab": "49901ab2.4aa854",
+        "tab": "",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d9b77407.4d077",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 2",
+        "tab": "",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "79d74e2c.30bb38",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 3",
+        "tab": "",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d1c7be24.25dca",
+        "type": "ui_group",
+        "name": "Group 4",
+        "tab": "",
+        "order": 4,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "f59393c0.1ee27",
+        "type": "coap-server",
+        "name": "Hello CoAP Server",
+        "port": "5683"
+    },
+    {
+        "id": "11551bf3.a78e34",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 1",
+        "tab": "",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "42797468.bce6dc",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 2",
+        "tab": "",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "dd4c22c.9940f6",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 3",
+        "tab": "",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "4cc262a9.3d05d4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 4",
+        "tab": "",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "76250a55.b504ac",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 1",
+        "tab": "",
         "order": 1,
         "disp": false,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "daa3a66b.b751b",
+        "id": "49e0316d.dcb418",
         "type": "ui_group",
         "z": "",
         "name": "Room 2",
-        "tab": "49901ab2.4aa854",
+        "tab": "",
         "order": 2,
         "disp": false,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "49901ab2.4aa854",
+        "id": "5cf8d8cb.287de",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 3",
+        "tab": "",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "458db1df.f450a8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 4",
+        "tab": "",
+        "order": 4,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "ea5b92e1.7b2d48",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 1",
+        "tab": "",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "69d2db6e.cf2934",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 2",
+        "tab": "",
+        "order": 2,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "83e0c5ad.6ec618",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 3",
+        "tab": "",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "982273ad.b7bc5",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 4",
+        "tab": "",
+        "order": 4,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "911590ed.ce7258",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 1",
+        "tab": "68a7d63f.975578",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "27b58595.c8a9da",
+        "type": "ui_group",
+        "z": "",
+        "name": "Room 2",
+        "tab": "68a7d63f.975578",
+        "order": 2,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "68a7d63f.975578",
         "type": "ui_tab",
         "z": "",
         "name": "Household",
@@ -140,114 +318,53 @@
         "order": 1
     },
     {
-        "id": "4ebfc90a.e2073",
+        "id": "73e57982.f1d4d8",
         "type": "ui_group",
         "z": "",
         "name": "Room 3",
-        "tab": "49901ab2.4aa854",
+        "tab": "68a7d63f.975578",
         "order": 3,
         "disp": false,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "ecc1fbf5.602a28",
+        "id": "ffbf8ca7.58b638",
         "type": "ui_group",
         "z": "",
         "name": "Room 4",
-        "tab": "49901ab2.4aa854",
+        "tab": "68a7d63f.975578",
         "order": 4,
         "disp": false,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "29e754c1.933584",
-        "type": "json",
-        "z": "3c3bb638.fd3782",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 350,
-        "y": 200,
-        "wires": [
-            [
-                "c12bd315.e78b1"
-            ]
-        ]
+        "id": "38d6dcf2.3a5944",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "Thingspeak Broker",
+        "broker": "mqtt.thingspeak.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
     },
     {
-        "id": "c12bd315.e78b1",
-        "type": "file",
-        "z": "3c3bb638.fd3782",
-        "name": "stampa su file",
-        "filename": "provaScritturaGet",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "true",
-        "x": 540,
-        "y": 220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4601796e.491798",
-        "type": "inject",
-        "z": "3c3bb638.fd3782",
-        "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 210,
-        "y": 80,
-        "wires": [
-            [
-                "f552b187.dd8388"
-            ]
-        ]
-    },
-    {
-        "id": "f552b187.dd8388",
-        "type": "http request",
-        "z": "3c3bb638.fd3782",
-        "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "url": "https://api.thingspeak.com/channels/562389/feeds.json",
-        "tls": "",
-        "x": 190,
-        "y": 200,
-        "wires": [
-            [
-                "29e754c1.933584",
-                "e3b113f4.fe5fd"
-            ]
-        ]
-    },
-    {
-        "id": "e3b113f4.fe5fd",
-        "type": "debug",
-        "z": "3c3bb638.fd3782",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "x": 550,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "95755bda.36a8d8",
+        "id": "74f44772.53f528",
         "type": "coap request",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "method": "GET",
         "observe": true,
         "url": "coap://[aaaa::212:7402:2:202]/temperature",
@@ -258,15 +375,15 @@
         "y": 80,
         "wires": [
             [
-                "9e9cc9e3.78e278",
-                "f87df240.8a3e38"
+                "98a778b.d043f88",
+                "f63d7210.0bbbe"
             ]
         ]
     },
     {
-        "id": "f87df240.8a3e38",
+        "id": "f63d7210.0bbbe",
         "type": "debug",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -278,11 +395,11 @@
         "wires": []
     },
     {
-        "id": "9e9cc9e3.78e278",
+        "id": "98a778b.d043f88",
         "type": "ui_gauge",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "name": "",
-        "group": "a9142568.55f728",
+        "group": "911590ed.ce7258",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -304,11 +421,11 @@
         "wires": []
     },
     {
-        "id": "6f27cf39.7e148",
+        "id": "53914bd.9344834",
         "type": "ui_button",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "name": "",
-        "group": "a9142568.55f728",
+        "group": "911590ed.ce7258",
         "order": 6,
         "width": 0,
         "height": 0,
@@ -324,14 +441,14 @@
         "y": 580,
         "wires": [
             [
-                "a30874cb.27537"
+                "1f77cb89.e29654"
             ]
         ]
     },
     {
-        "id": "a30874cb.27537",
+        "id": "1f77cb89.e29654",
         "type": "coap request",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "method": "GET",
         "observe": false,
         "url": "coap://[aaaa::212:7402:2:202]/status",
@@ -342,15 +459,15 @@
         "y": 580,
         "wires": [
             [
-                "8979a7c4.b617e",
-                "2f0aba38.3ccd46"
+                "3a5672d5.265d16",
+                "14e8af6.9767ed1"
             ]
         ]
     },
     {
-        "id": "8979a7c4.b617e",
+        "id": "3a5672d5.265d16",
         "type": "debug",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -362,9 +479,9 @@
         "wires": []
     },
     {
-        "id": "2f0aba38.3ccd46",
+        "id": "14e8af6.9767ed1",
         "type": "json",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "name": "",
         "property": "payload",
         "action": "",
@@ -376,12 +493,12 @@
         ]
     },
     {
-        "id": "6695a922.8d029",
+        "id": "973fcd60.b1e218",
         "type": "ui_switch",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "label": "Heater",
-        "group": "daa3a66b.b751b",
+        "group": "27b58595.c8a9da",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -401,17 +518,17 @@
         "y": 260,
         "wires": [
             [
-                "5691933e.0bbf9c"
+                "d4584a91.acaed8"
             ]
         ]
     },
     {
-        "id": "a03132e4.b8595",
+        "id": "2d863a33.9a3736",
         "type": "ui_switch",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "label": "Ventilation",
-        "group": "daa3a66b.b751b",
+        "group": "27b58595.c8a9da",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -431,17 +548,17 @@
         "y": 320,
         "wires": [
             [
-                "8ec52590.f46828"
+                "8d4ecb35.da3a58"
             ]
         ]
     },
     {
-        "id": "8bcc6fc1.6663d8",
+        "id": "d3ea3cf5.fb32d",
         "type": "ui_switch",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "label": "Air conditioning",
-        "group": "daa3a66b.b751b",
+        "group": "27b58595.c8a9da",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -461,14 +578,14 @@
         "y": 380,
         "wires": [
             [
-                "537447a2.e222a"
+                "5269221d.4954ec"
             ]
         ]
     },
     {
-        "id": "5691933e.0bbf9c",
+        "id": "d4584a91.acaed8",
         "type": "coap request",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7403:3:303]/leds?color=r",
@@ -482,9 +599,9 @@
         ]
     },
     {
-        "id": "537447a2.e222a",
+        "id": "5269221d.4954ec",
         "type": "coap request",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7403:3:303]/leds?color=b",
@@ -498,9 +615,9 @@
         ]
     },
     {
-        "id": "8ec52590.f46828",
+        "id": "8d4ecb35.da3a58",
         "type": "coap request",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7403:3:303]/leds?color=g",
@@ -514,9 +631,9 @@
         ]
     },
     {
-        "id": "78607267.67629c",
+        "id": "b6db0074.af24c",
         "type": "inject",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "name": "",
         "topic": "",
         "payload": "",
@@ -529,17 +646,17 @@
         "y": 260,
         "wires": [
             [
-                "95755bda.36a8d8",
-                "97bd247e.d4f658",
-                "da67c700.587d9",
-                "8daccf18.e70458"
+                "74f44772.53f528",
+                "2f3249f9.055c26",
+                "60b4889a.1ad618",
+                "98ae3128.5fc59"
             ]
         ]
     },
     {
-        "id": "ceee9c42.615888",
+        "id": "f17afdf6.9d9568",
         "type": "inject",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "topic": "",
         "payload": "mode=off",
@@ -552,25 +669,25 @@
         "y": 420,
         "wires": [
             [
-                "a03132e4.b8595",
-                "6695a922.8d029",
-                "8bcc6fc1.6663d8",
-                "dc0af7ce.bd1728",
-                "31f4ae16.944a62",
-                "949ea13c.048f58",
-                "28d22390.552df4",
-                "1af06c71.7339cc",
-                "c87e96c6.991ea",
-                "b24fbf89.bd804",
-                "ceeec65.f337d38",
-                "9386d9f6.a6b08"
+                "2d863a33.9a3736",
+                "973fcd60.b1e218",
+                "d3ea3cf5.fb32d",
+                "711bbdba.a7868c",
+                "3a95469d.11a102",
+                "386b48e4.1cb88",
+                "2ee3653e.9ea1ea",
+                "b16504a5.ac4718",
+                "fa90a4c2.a3fd28",
+                "777a81e8.993f18",
+                "19812922.d9c45f",
+                "c1f8c5b1.f4dac"
             ]
         ]
     },
     {
-        "id": "97bd247e.d4f658",
+        "id": "2f3249f9.055c26",
         "type": "coap request",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "method": "GET",
         "observe": true,
         "url": "coap://[aaaa::212:7403:3:303]/temperature",
@@ -581,15 +698,15 @@
         "y": 200,
         "wires": [
             [
-                "4b05ac81.973ff4",
-                "84ad4715.9f499"
+                "643fadb.723a6d4",
+                "11c0df25.03e6c1"
             ]
         ]
     },
     {
-        "id": "4b05ac81.973ff4",
+        "id": "643fadb.723a6d4",
         "type": "debug",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -601,11 +718,11 @@
         "wires": []
     },
     {
-        "id": "84ad4715.9f499",
+        "id": "11c0df25.03e6c1",
         "type": "ui_gauge",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "name": "",
-        "group": "daa3a66b.b751b",
+        "group": "27b58595.c8a9da",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -627,12 +744,12 @@
         "wires": []
     },
     {
-        "id": "dc0af7ce.bd1728",
+        "id": "711bbdba.a7868c",
         "type": "ui_switch",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "label": "Heater",
-        "group": "a9142568.55f728",
+        "group": "911590ed.ce7258",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -652,17 +769,17 @@
         "y": 60,
         "wires": [
             [
-                "6f9deaeb.b4c944"
+                "5324e153.44047"
             ]
         ]
     },
     {
-        "id": "31f4ae16.944a62",
+        "id": "3a95469d.11a102",
         "type": "ui_switch",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "label": "Ventilation",
-        "group": "a9142568.55f728",
+        "group": "911590ed.ce7258",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -682,17 +799,17 @@
         "y": 120,
         "wires": [
             [
-                "e075eea0.776238"
+                "55aea027.1521c8"
             ]
         ]
     },
     {
-        "id": "949ea13c.048f58",
+        "id": "386b48e4.1cb88",
         "type": "ui_switch",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "label": "Air conditioning",
-        "group": "a9142568.55f728",
+        "group": "911590ed.ce7258",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -712,14 +829,14 @@
         "y": 180,
         "wires": [
             [
-                "39c04662.d36682"
+                "37ecbc68.4d5774"
             ]
         ]
     },
     {
-        "id": "6f9deaeb.b4c944",
+        "id": "5324e153.44047",
         "type": "coap request",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7402:2:202]/leds?color=r",
@@ -733,9 +850,9 @@
         ]
     },
     {
-        "id": "39c04662.d36682",
+        "id": "37ecbc68.4d5774",
         "type": "coap request",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7402:2:202]/leds?color=b",
@@ -749,9 +866,9 @@
         ]
     },
     {
-        "id": "e075eea0.776238",
+        "id": "55aea027.1521c8",
         "type": "coap request",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7402:2:202]/leds?color=g",
@@ -765,9 +882,9 @@
         ]
     },
     {
-        "id": "da67c700.587d9",
+        "id": "60b4889a.1ad618",
         "type": "coap request",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "method": "GET",
         "observe": true,
         "url": "coap://[aaaa::212:7404:4:404]/temperature",
@@ -778,15 +895,15 @@
         "y": 320,
         "wires": [
             [
-                "51e7e529.43e124",
-                "feaeb074.e3ed1"
+                "4a75fa5c.3966f4",
+                "bd991ee4.fc27a"
             ]
         ]
     },
     {
-        "id": "51e7e529.43e124",
+        "id": "4a75fa5c.3966f4",
         "type": "debug",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -798,11 +915,11 @@
         "wires": []
     },
     {
-        "id": "feaeb074.e3ed1",
+        "id": "bd991ee4.fc27a",
         "type": "ui_gauge",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "name": "",
-        "group": "4ebfc90a.e2073",
+        "group": "73e57982.f1d4d8",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -824,9 +941,9 @@
         "wires": []
     },
     {
-        "id": "8daccf18.e70458",
+        "id": "98ae3128.5fc59",
         "type": "coap request",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "method": "GET",
         "observe": true,
         "url": "coap://[aaaa::212:7405:5:505]/temperature",
@@ -837,15 +954,15 @@
         "y": 440,
         "wires": [
             [
-                "8c606b80.54db9",
-                "ce41b093.4cbbd8"
+                "5bac2c2.fc39ed4",
+                "bbea1bed.e9a27"
             ]
         ]
     },
     {
-        "id": "8c606b80.54db9",
+        "id": "5bac2c2.fc39ed4",
         "type": "debug",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -857,11 +974,11 @@
         "wires": []
     },
     {
-        "id": "ce41b093.4cbbd8",
+        "id": "bbea1bed.e9a27",
         "type": "ui_gauge",
-        "z": "6be78bf1.74a41c",
+        "z": "f92e3b70.f82b28",
         "name": "",
-        "group": "ecc1fbf5.602a28",
+        "group": "ffbf8ca7.58b638",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -883,12 +1000,12 @@
         "wires": []
     },
     {
-        "id": "28d22390.552df4",
+        "id": "2ee3653e.9ea1ea",
         "type": "ui_switch",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "label": "Heater",
-        "group": "4ebfc90a.e2073",
+        "group": "73e57982.f1d4d8",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -908,17 +1025,17 @@
         "y": 460,
         "wires": [
             [
-                "486497d7.c20c2"
+                "b2bd5be4.af1968"
             ]
         ]
     },
     {
-        "id": "1af06c71.7339cc",
+        "id": "b16504a5.ac4718",
         "type": "ui_switch",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "label": "Ventilation",
-        "group": "4ebfc90a.e2073",
+        "group": "73e57982.f1d4d8",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -938,17 +1055,17 @@
         "y": 520,
         "wires": [
             [
-                "2086e4b6.dcc5ac"
+                "8e024133.b06488"
             ]
         ]
     },
     {
-        "id": "c87e96c6.991ea",
+        "id": "fa90a4c2.a3fd28",
         "type": "ui_switch",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "label": "Air conditioning",
-        "group": "4ebfc90a.e2073",
+        "group": "73e57982.f1d4d8",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -968,14 +1085,14 @@
         "y": 580,
         "wires": [
             [
-                "2bf147ec.894868"
+                "50f86280.9f5d3c"
             ]
         ]
     },
     {
-        "id": "486497d7.c20c2",
+        "id": "b2bd5be4.af1968",
         "type": "coap request",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7404:4:404]/leds?color=r",
@@ -989,9 +1106,9 @@
         ]
     },
     {
-        "id": "2bf147ec.894868",
+        "id": "50f86280.9f5d3c",
         "type": "coap request",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7404:4:404]/leds?color=b",
@@ -1005,9 +1122,9 @@
         ]
     },
     {
-        "id": "2086e4b6.dcc5ac",
+        "id": "8e024133.b06488",
         "type": "coap request",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7404:4:404]/leds?color=g",
@@ -1021,12 +1138,12 @@
         ]
     },
     {
-        "id": "b24fbf89.bd804",
+        "id": "777a81e8.993f18",
         "type": "ui_switch",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "label": "Heater",
-        "group": "ecc1fbf5.602a28",
+        "group": "ffbf8ca7.58b638",
         "order": 4,
         "width": 0,
         "height": 0,
@@ -1046,17 +1163,17 @@
         "y": 660,
         "wires": [
             [
-                "63e4769c.b0a51"
+                "64d12567.c501c4"
             ]
         ]
     },
     {
-        "id": "ceeec65.f337d38",
+        "id": "19812922.d9c45f",
         "type": "ui_switch",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "label": "Ventilation",
-        "group": "ecc1fbf5.602a28",
+        "group": "ffbf8ca7.58b638",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -1076,17 +1193,17 @@
         "y": 720,
         "wires": [
             [
-                "55e68cfe.226664"
+                "a46d8e0b.4e2b1"
             ]
         ]
     },
     {
-        "id": "9386d9f6.a6b08",
+        "id": "c1f8c5b1.f4dac",
         "type": "ui_switch",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "name": "",
         "label": "Air conditioning",
-        "group": "ecc1fbf5.602a28",
+        "group": "ffbf8ca7.58b638",
         "order": 3,
         "width": 0,
         "height": 0,
@@ -1106,14 +1223,14 @@
         "y": 780,
         "wires": [
             [
-                "da0d4b50.aa8d6"
+                "62b7e2f9.a7bd14"
             ]
         ]
     },
     {
-        "id": "63e4769c.b0a51",
+        "id": "64d12567.c501c4",
         "type": "coap request",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7405:5:505]/leds?color=r",
@@ -1127,9 +1244,9 @@
         ]
     },
     {
-        "id": "da0d4b50.aa8d6",
+        "id": "62b7e2f9.a7bd14",
         "type": "coap request",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7405:5:505]/leds?color=b",
@@ -1143,9 +1260,9 @@
         ]
     },
     {
-        "id": "55e68cfe.226664",
+        "id": "a46d8e0b.4e2b1",
         "type": "coap request",
-        "z": "d2732bf5.cd5b98",
+        "z": "dde85846.b3fc9",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7405:5:505]/leds?color=g",
@@ -1156,6 +1273,152 @@
         "y": 720,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "311e4ed1.2a36da",
+        "type": "inject",
+        "z": "2e84e2be.2f24e6",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "7a0956ca.7632c8"
+            ]
+        ]
+    },
+    {
+        "id": "7a0956ca.7632c8",
+        "type": "function",
+        "z": "2e84e2be.2f24e6",
+        "name": "publish house temp",
+        "func": "//GET https://api.thingspeak.com/update?api_key=5M6JE0B87TULE88F&field1=0\nvar API_KEY_WRITE = \"5M6JE0B87TULE88F\";\nvar data=25;\nmsg.url = \"https://api.thingspeak.com/update?api_key=\"+API_KEY_WRITE+\"&field1=\"+data;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 200,
+        "wires": [
+            [
+                "4731457f.ddb434"
+            ]
+        ]
+    },
+    {
+        "id": "4731457f.ddb434",
+        "type": "http request",
+        "z": "2e84e2be.2f24e6",
+        "name": "house temperature channel",
+        "method": "GET",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 580,
+        "y": 200,
+        "wires": [
+            [
+                "f61f6e12.734938"
+            ]
+        ]
+    },
+    {
+        "id": "f61f6e12.734938",
+        "type": "debug",
+        "z": "2e84e2be.2f24e6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 810,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5b1a082b.3c9e28",
+        "type": "mqtt in",
+        "z": "2e84e2be.2f24e6",
+        "name": "subscribe temp",
+        "topic": "channels/851882/subscribe/json/NBTNJCPF9CV4C96N",
+        "qos": "0",
+        "broker": "38d6dcf2.3a5944",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "e273332.7f51b5"
+            ]
+        ]
+    },
+    {
+        "id": "30b96a22.4e57ce",
+        "type": "mqtt out",
+        "z": "2e84e2be.2f24e6",
+        "name": "publish temp",
+        "topic": "channels/851882/publish/5M6JE0B87TULE88F",
+        "qos": "0",
+        "retain": "",
+        "broker": "38d6dcf2.3a5944",
+        "x": 510,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "fd1bd87a.8d29b8",
+        "type": "inject",
+        "z": "2e84e2be.2f24e6",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 380,
+        "wires": [
+            [
+                "be28c52.aaf4638"
+            ]
+        ]
+    },
+    {
+        "id": "e273332.7f51b5",
+        "type": "debug",
+        "z": "2e84e2be.2f24e6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 390,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "be28c52.aaf4638",
+        "type": "function",
+        "z": "2e84e2be.2f24e6",
+        "name": "set temp",
+        "func": "msg.payload=\"field1=23\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 380,
+        "wires": [
+            [
+                "30b96a22.4e57ce"
+            ]
         ]
     }
 ]
