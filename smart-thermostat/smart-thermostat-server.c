@@ -145,7 +145,7 @@ temperature_handler(void* request, void* response, uint8_t *buffer, uint16_t pre
 /******************* temperature observe **********************************/
 #if REST_RES_PUSHING
 
-PERIODIC_RESOURCE(tempobs, METHOD_GET, "temperature/observe", "title=\"Temperature observe\";obs", 5*CLOCK_SECOND);
+PERIODIC_RESOURCE(tempobs, METHOD_GET, "temperature", "title=\"Temperature observe\";obs", 30*CLOCK_SECOND);
 
 void
 tempobs_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
@@ -608,9 +608,9 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
   static struct etimer timer;
   
   /* Thermostat internal logic */
-  etimer_set(&timer, CLOCK_SECOND * 20);	//TODO 20 secondi
+  etimer_set(&timer, CLOCK_SECOND * 130);	//TODO 20 secondi
   //TODO questa versione basic: si puo evitare che si svegli ogni 20 sec se in stand by
-    
+  
   while(1) {
     PROCESS_WAIT_EVENT();
     

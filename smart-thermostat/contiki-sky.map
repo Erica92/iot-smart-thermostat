@@ -2053,50 +2053,50 @@ LOAD /usr/lib/gcc/msp430/4.6.3/mmpy-16/libcrt0.a
                 0x0000f6c2                _unexpected_
                 0x0000f6c4                . = ALIGN (0x2)
 
-.rodata         0x0000f6c4      0x590
+.rodata         0x0000f6c4      0x588
                 0x0000f6c4                . = ALIGN (0x2)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x0000f6c4      0x1ba smart-thermostat-server.co
+ .rodata        0x0000f6c4      0x1b2 smart-thermostat-server.co
                 0x0000f7be                autostart_processes
-                0x0000f87c                rand_max
- .rodata        0x0000f87e      0x10b obj_sky/contiki-sky-main.o
- *fill*         0x0000f989        0x1 00
- .rodata        0x0000f98a        0x8 contiki-sky.a(rimeaddr.o)
-                0x0000f98a                rimeaddr_null
- .rodata        0x0000f992       0x18 contiki-sky.a(nullrdc.o)
-                0x0000f99a                nullrdc_driver
- .rodata        0x0000f9aa        0x4 contiki-sky.a(framer-802154.o)
-                0x0000f9aa                framer_802154
- .rodata        0x0000f9ae       0x14 contiki-sky.a(csma.o)
-                0x0000f9b4                csma_driver
- .rodata        0x0000f9c2        0xc contiki-sky.a(etimer.o)
- .rodata        0x0000f9ce        0xf contiki-sky.a(ctimer.o)
- *fill*         0x0000f9dd        0x1 00
- .rodata        0x0000f9de       0x24 contiki-sky.a(sicslowpan.o)
-                0x0000f9ea                sicslowpan_driver
-                0x0000f9f0                llprefix
-                0x0000f9f2                unc_mxconf
-                0x0000f9f6                unc_ctxconf
-                0x0000f9fa                unc_llconf
- .rodata        0x0000fa02        0xd contiki-sky.a(tcpip.o)
- *fill*         0x0000fa0f        0x1 00
- .rodata        0x0000fa10       0xd2 contiki-sky.a(er-coap-13.o)
- .rodata        0x0000fae2      0x104 contiki-sky.a(er-coap-13-engi)
-                0x0000fb34                coap_rest_implementation
- .rodata        0x0000fbe6       0x1d contiki-sky.a(er-coap-13-obse)
- .rodata        0x0000fc03        0xd contiki-sky.a(erbium.o)
- .rodata        0x0000fc10       0x10 contiki-sky.a(button-sensor.o)
-                0x0000fc18                button_sensor
- .rodata        0x0000fc20        0x8 contiki-sky.a(sensors.o)
- .rodata        0x0000fc28       0x22 contiki-sky.a(cc2420.o)
-                0x0000fc28                cc2420_driver
- .rodata        0x0000fc4a        0x2 contiki-sky.a(frame802154.o)
- .rodata        0x0000fc4c        0x7 /usr/lib/gcc/msp430/4.6.3/../../../../msp430/lib/mmpy-16/libc.a(vuprintf.o)
-                0x0000fc54                . = ALIGN (0x2)
- *fill*         0x0000fc53        0x1 00
-                0x0000fc54                _etext = .
+                0x0000f874                rand_max
+ .rodata        0x0000f876      0x10b obj_sky/contiki-sky-main.o
+ *fill*         0x0000f981        0x1 00
+ .rodata        0x0000f982        0x8 contiki-sky.a(rimeaddr.o)
+                0x0000f982                rimeaddr_null
+ .rodata        0x0000f98a       0x18 contiki-sky.a(nullrdc.o)
+                0x0000f992                nullrdc_driver
+ .rodata        0x0000f9a2        0x4 contiki-sky.a(framer-802154.o)
+                0x0000f9a2                framer_802154
+ .rodata        0x0000f9a6       0x14 contiki-sky.a(csma.o)
+                0x0000f9ac                csma_driver
+ .rodata        0x0000f9ba        0xc contiki-sky.a(etimer.o)
+ .rodata        0x0000f9c6        0xf contiki-sky.a(ctimer.o)
+ *fill*         0x0000f9d5        0x1 00
+ .rodata        0x0000f9d6       0x24 contiki-sky.a(sicslowpan.o)
+                0x0000f9e2                sicslowpan_driver
+                0x0000f9e8                llprefix
+                0x0000f9ea                unc_mxconf
+                0x0000f9ee                unc_ctxconf
+                0x0000f9f2                unc_llconf
+ .rodata        0x0000f9fa        0xd contiki-sky.a(tcpip.o)
+ *fill*         0x0000fa07        0x1 00
+ .rodata        0x0000fa08       0xd2 contiki-sky.a(er-coap-13.o)
+ .rodata        0x0000fada      0x104 contiki-sky.a(er-coap-13-engi)
+                0x0000fb2c                coap_rest_implementation
+ .rodata        0x0000fbde       0x1d contiki-sky.a(er-coap-13-obse)
+ .rodata        0x0000fbfb        0xd contiki-sky.a(erbium.o)
+ .rodata        0x0000fc08       0x10 contiki-sky.a(button-sensor.o)
+                0x0000fc10                button_sensor
+ .rodata        0x0000fc18        0x8 contiki-sky.a(sensors.o)
+ .rodata        0x0000fc20       0x22 contiki-sky.a(cc2420.o)
+                0x0000fc20                cc2420_driver
+ .rodata        0x0000fc42        0x2 contiki-sky.a(frame802154.o)
+ .rodata        0x0000fc44        0x7 /usr/lib/gcc/msp430/4.6.3/../../../../msp430/lib/mmpy-16/libc.a(vuprintf.o)
+                0x0000fc4c                . = ALIGN (0x2)
+ *fill*         0x0000fc4b        0x1 00
+                0x0000fc4c                _etext = .
 
-.data           0x00001100      0x13c load address 0x0000fc54
+.data           0x00001100      0x13c load address 0x0000fc4c
                 0x00001100                . = ALIGN (0x2)
                 0x00001100                PROVIDE (__data_start, .)
  *(.data .data.* .gnu.linkonce.d.*)
@@ -2142,10 +2142,10 @@ LOAD /usr/lib/gcc/msp430/4.6.3/mmpy-16/libcrt0.a
  .data          0x00001238        0x4 /usr/lib/gcc/msp430/4.6.3/../../../../msp430/lib/mmpy-16/libc.a(rand.o)
                 0x0000123c                . = ALIGN (0x2)
                 0x0000123c                _edata = .
-                0x0000fc54                PROVIDE (__data_load_start, LOADADDR (.data))
+                0x0000fc4c                PROVIDE (__data_load_start, LOADADDR (.data))
                 0x0000013c                PROVIDE (__data_size, SIZEOF (.data))
 
-.bss            0x0000123c     0x155c load address 0x0000fd90
+.bss            0x0000123c     0x155c load address 0x0000fd88
                 0x0000123c                PROVIDE (__bss_start, .)
  *(.bss .bss.*)
  .bss           0x0000123c       0x20 smart-thermostat-server.co
@@ -2255,7 +2255,7 @@ LOAD /usr/lib/gcc/msp430/4.6.3/mmpy-16/libcrt0.a
                 0x00002798                PROVIDE (__bss_end, .)
                 0x0000155c                PROVIDE (__bss_size, SIZEOF (.bss))
 
-.noinit         0x00002798        0x2 load address 0x0000fd90
+.noinit         0x00002798        0x2 load address 0x0000fd88
                 0x00002798                PROVIDE (__noinit_start, .)
  *(.noinit .noinit.*)
  .noinit.crt0   0x00002798        0x2 /usr/lib/gcc/msp430/4.6.3/mmpy-16/libcrt0.a(__watchdog_support.o)
@@ -2553,6 +2553,6 @@ LOAD /usr/lib/gcc/msp430/4.6.3/mmpy-16/libcrt0.a
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x18 /usr/lib/gcc/msp430/4.6.3/../../../../msp430/lib/mmpy-16/libc.a(vuprintf.o)
                 0x00003900                PROVIDE (__stack, (ORIGIN (ram) + 0x2800))
-                0x0000fc54                PROVIDE (__data_start_rom, _etext)
-                0x0000fd90                PROVIDE (__data_end_rom, (_etext + SIZEOF (.data)))
+                0x0000fc4c                PROVIDE (__data_start_rom, _etext)
+                0x0000fd88                PROVIDE (__data_end_rom, (_etext + SIZEOF (.data)))
 OUTPUT(smart-thermostat-server.sky elf32-msp430)
