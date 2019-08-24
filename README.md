@@ -10,7 +10,7 @@
 #### Instruction:
 1. download smart-thermostat-project under the folder contiki-2.7
 2. inside the folder smart-thermostat-project/rpl-border-router execute `make TARGET=sky`
-3. inside the folder smart-thermostat-project/smart-thermostat execute `make TARGET=sky smart-thermostat`
+3. inside the folder smart-thermostat-project/smart-thermostat-server execute `make TARGET=sky smart-thermostat-server`
 4. Open cooja and open the simulation smart-thermostat-simulation
 5. run the simulation
 6. click on the border router and open the server serial socket
