@@ -1,22 +1,36 @@
 [
     {
-        "id": "b5d1af96.0416f8",
+        "id": "6be78bf1.74a41c",
+        "type": "tab",
+        "label": "Room 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d2732bf5.cd5b98",
+        "type": "tab",
+        "label": "Room 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "17729526.555f63",
+        "type": "tab",
+        "label": "Room 3",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c0a887e5.60bbc",
+        "type": "tab",
+        "label": "Room 4",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3c3bb638.fd3782",
         "type": "tab",
         "label": "Flow 1",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "b06efc1e.75044",
-        "type": "tab",
-        "label": "Flow 2",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "5b6227aa.3594c8",
-        "type": "tab",
-        "label": "Dashboard",
         "disabled": false,
         "info": ""
     },
@@ -110,89 +124,97 @@
         }
     },
     {
-        "id": "5ad9849b.af6824",
+        "id": "933f3bc4.d65c4",
+        "type": "coap-server",
+        "name": "Hello CoAP Server",
+        "port": "5683"
+    },
+    {
+        "id": "a9142568.55f728",
         "type": "ui_group",
         "z": "",
         "name": "Room 1",
-        "tab": "90f5ac2.d62c1d",
+        "tab": "49901ab2.4aa854",
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "d9b77407.4d077",
+        "id": "daa3a66b.b751b",
         "type": "ui_group",
         "z": "",
         "name": "Room 2",
-        "tab": "90f5ac2.d62c1d",
+        "tab": "49901ab2.4aa854",
         "order": 2,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "90f5ac2.d62c1d",
+        "id": "49901ab2.4aa854",
         "type": "ui_tab",
         "z": "",
-        "name": "Tab 1",
+        "name": "Household",
         "icon": "dashboard",
         "order": 1
     },
     {
-        "id": "79d74e2c.30bb38",
+        "id": "4ebfc90a.e2073",
         "type": "ui_group",
         "z": "",
         "name": "Room 3",
-        "tab": "90f5ac2.d62c1d",
+        "tab": "49901ab2.4aa854",
         "order": 3,
         "disp": true,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "d1c7be24.25dca",
+        "id": "ecc1fbf5.602a28",
         "type": "ui_group",
-        "name": "Group 4",
-        "tab": "90f5ac2.d62c1d",
+        "z": "",
+        "name": "Room 4",
+        "tab": "49901ab2.4aa854",
         "order": 4,
         "disp": true,
-        "width": 6
+        "width": "6",
+        "collapse": false
     },
     {
-        "id": "5b219c84.ffd8a4",
+        "id": "29e754c1.933584",
         "type": "json",
-        "z": "b5d1af96.0416f8",
+        "z": "3c3bb638.fd3782",
         "name": "",
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 240,
-        "y": 240,
+        "x": 350,
+        "y": 200,
         "wires": [
             [
-                "1582d559.f7a30b"
+                "c12bd315.e78b1"
             ]
         ]
     },
     {
-        "id": "1582d559.f7a30b",
+        "id": "c12bd315.e78b1",
         "type": "file",
-        "z": "b5d1af96.0416f8",
+        "z": "3c3bb638.fd3782",
         "name": "stampa su file",
         "filename": "provaScritturaGet",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "true",
-        "x": 430,
-        "y": 260,
+        "x": 540,
+        "y": 220,
         "wires": [
             []
         ]
     },
     {
-        "id": "92804f7a.286ef",
+        "id": "4601796e.491798",
         "type": "inject",
-        "z": "b5d1af96.0416f8",
+        "z": "3c3bb638.fd3782",
         "name": "",
         "topic": "",
         "payload": "",
@@ -201,50 +223,50 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 100,
-        "y": 120,
+        "x": 210,
+        "y": 80,
         "wires": [
             [
-                "a22cb9fa.457118"
+                "f552b187.dd8388"
             ]
         ]
     },
     {
-        "id": "a22cb9fa.457118",
+        "id": "f552b187.dd8388",
         "type": "http request",
-        "z": "b5d1af96.0416f8",
+        "z": "3c3bb638.fd3782",
         "name": "",
         "method": "GET",
         "ret": "txt",
         "url": "https://api.thingspeak.com/channels/562389/feeds.json",
         "tls": "",
-        "x": 80,
-        "y": 240,
+        "x": 190,
+        "y": 200,
         "wires": [
             [
-                "5b219c84.ffd8a4",
-                "ee95636c.a1731"
+                "29e754c1.933584",
+                "e3b113f4.fe5fd"
             ]
         ]
     },
     {
-        "id": "ee95636c.a1731",
+        "id": "e3b113f4.fe5fd",
         "type": "debug",
-        "z": "b5d1af96.0416f8",
+        "z": "3c3bb638.fd3782",
         "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 440,
-        "y": 180,
+        "x": 550,
+        "y": 140,
         "wires": []
     },
     {
-        "id": "ab91e9a0.db502",
+        "id": "95755bda.36a8d8",
         "type": "coap request",
-        "z": "5b6227aa.3594c8",
+        "z": "6be78bf1.74a41c",
         "method": "GET",
         "observe": true,
         "url": "coap://[aaaa::212:7402:2:202]/temperature/observe",
@@ -255,15 +277,15 @@
         "y": 100,
         "wires": [
             [
-                "f2c28a67.644158",
-                "ca98857c.d87bc"
+                "f87df240.8a3e38",
+                "9e9cc9e3.78e278"
             ]
         ]
     },
     {
-        "id": "f2c28a67.644158",
+        "id": "f87df240.8a3e38",
         "type": "debug",
-        "z": "5b6227aa.3594c8",
+        "z": "6be78bf1.74a41c",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -275,16 +297,16 @@
         "wires": []
     },
     {
-        "id": "ca98857c.d87bc",
+        "id": "9e9cc9e3.78e278",
         "type": "ui_gauge",
-        "z": "5b6227aa.3594c8",
+        "z": "6be78bf1.74a41c",
         "name": "",
-        "group": "5ad9849b.af6824",
+        "group": "a9142568.55f728",
         "order": 1,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "Temperature 1",
+        "title": "Temperature",
         "label": "units",
         "format": "{{value}}",
         "min": "10",
@@ -296,102 +318,18 @@
         ],
         "seg1": "17",
         "seg2": "24",
-        "x": 720,
+        "x": 710,
         "y": 160,
         "wires": []
     },
     {
-        "id": "6aeadc42.fe6a74",
-        "type": "coap request",
-        "z": "5b6227aa.3594c8",
-        "method": "GET",
-        "observe": true,
-        "url": "coap://[aaaa::212:7402:2:202]/temperature/observe",
-        "content-format": "text/plain",
-        "raw-buffer": false,
-        "name": "COAP GET 2",
-        "x": 440,
-        "y": 440,
-        "wires": [
-            [
-                "6572198c.e4b8",
-                "3e2be6ee.260f72"
-            ]
-        ]
-    },
-    {
-        "id": "6572198c.e4b8",
-        "type": "debug",
-        "z": "5b6227aa.3594c8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 720,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "69348888.e46cf8",
-        "type": "ui_button",
-        "z": "5b6227aa.3594c8",
-        "name": "",
-        "group": "d9b77407.4d077",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Get temperature",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 150,
-        "y": 440,
-        "wires": [
-            [
-                "6aeadc42.fe6a74"
-            ]
-        ]
-    },
-    {
-        "id": "3e2be6ee.260f72",
-        "type": "ui_gauge",
-        "z": "5b6227aa.3594c8",
-        "name": "",
-        "group": "d9b77407.4d077",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Temperature 2",
-        "label": "units",
-        "format": "{{value}}",
-        "min": "10",
-        "max": "30",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "17",
-        "seg2": "24",
-        "x": 720,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "75700d8a.4315a4",
+        "id": "88b8d324.dfb4a",
         "type": "ui_switch",
-        "z": "5b6227aa.3594c8",
+        "z": "6be78bf1.74a41c",
         "name": "",
         "label": "Heater",
-        "group": "d9b77407.4d077",
-        "order": 3,
+        "group": "a9142568.55f728",
+        "order": 4,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -407,50 +345,20 @@
         "officon": "",
         "offcolor": "",
         "x": 190,
-        "y": 500,
+        "y": 240,
         "wires": [
             [
-                "ca9cdcfe.2408d8"
+                "6ca45c50.a2b55c"
             ]
         ]
     },
     {
-        "id": "131b947f.7d49b4",
+        "id": "7b4f7930.5426f",
         "type": "ui_switch",
-        "z": "5b6227aa.3594c8",
+        "z": "6be78bf1.74a41c",
         "name": "",
         "label": "Ventilation",
-        "group": "d9b77407.4d077",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "mode=on",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "mode=off",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "x": 170,
-        "y": 560,
-        "wires": [
-            [
-                "798bce8d.8288a8"
-            ]
-        ]
-    },
-    {
-        "id": "557f6522.adc3f4",
-        "type": "ui_switch",
-        "z": "5b6227aa.3594c8",
-        "name": "",
-        "label": "Air conditioning",
-        "group": "d9b77407.4d077",
+        "group": "a9142568.55f728",
         "order": 5,
         "width": 0,
         "height": 0,
@@ -466,68 +374,98 @@
         "offvalueType": "str",
         "officon": "",
         "offcolor": "",
-        "x": 160,
-        "y": 620,
+        "x": 170,
+        "y": 300,
         "wires": [
             [
-                "1455d033.526548"
+                "dc8c29f6.2191f"
             ]
         ]
     },
     {
-        "id": "ca9cdcfe.2408d8",
+        "id": "4de43991.588d08",
+        "type": "ui_switch",
+        "z": "6be78bf1.74a41c",
+        "name": "",
+        "label": "Air conditioning",
+        "group": "a9142568.55f728",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "52abd896.a42148"
+            ]
+        ]
+    },
+    {
+        "id": "6ca45c50.a2b55c",
         "type": "coap request",
-        "z": "5b6227aa.3594c8",
+        "z": "6be78bf1.74a41c",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7402:2:202]/leds?color=r",
         "content-format": "text/plain",
         "raw-buffer": false,
-        "name": "HEAT 2",
+        "name": "HEAT 1",
         "x": 420,
-        "y": 500,
+        "y": 240,
         "wires": [
             []
         ]
     },
     {
-        "id": "1455d033.526548",
+        "id": "52abd896.a42148",
         "type": "coap request",
-        "z": "5b6227aa.3594c8",
+        "z": "6be78bf1.74a41c",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7402:2:202]/leds?color=b",
         "content-format": "text/plain",
         "raw-buffer": false,
-        "name": "CONDITIONING 2",
+        "name": "CONDITIONING 1",
         "x": 450,
-        "y": 620,
+        "y": 360,
         "wires": [
             []
         ]
     },
     {
-        "id": "798bce8d.8288a8",
+        "id": "dc8c29f6.2191f",
         "type": "coap request",
-        "z": "5b6227aa.3594c8",
+        "z": "6be78bf1.74a41c",
         "method": "PUT",
         "observe": false,
         "url": "coap://[aaaa::212:7402:2:202]/leds?color=g",
         "content-format": "text/plain",
         "raw-buffer": false,
-        "name": "VENTILATION 2",
+        "name": "VENTILATION 1",
         "x": 440,
-        "y": 560,
+        "y": 300,
         "wires": [
             []
         ]
     },
     {
-        "id": "762fc667.f8066",
+        "id": "8b794e51.de06b",
         "type": "ui_button",
-        "z": "5b6227aa.3594c8",
+        "z": "6be78bf1.74a41c",
         "name": "",
-        "group": "5ad9849b.af6824",
+        "group": "a9142568.55f728",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -543,33 +481,189 @@
         "y": 100,
         "wires": [
             [
-                "ab91e9a0.db502"
+                "95755bda.36a8d8"
             ]
         ]
     },
     {
-        "id": "482b720b.33d4b4",
-        "type": "coap request",
-        "z": "5b6227aa.3594c8",
-        "method": "GET",
-        "observe": false,
-        "url": "coap://[aaaa::212:7405:5:505]/temperature",
-        "content-format": "text/plain",
-        "raw-buffer": false,
-        "name": "COAP GET 5",
-        "x": 400,
-        "y": 1040,
+        "id": "6f27cf39.7e148",
+        "type": "ui_button",
+        "z": "6be78bf1.74a41c",
+        "name": "",
+        "group": "a9142568.55f728",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "get status",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 160,
+        "y": 460,
         "wires": [
             [
-                "56e0043d.6c5974",
-                "97b9bd41.aec6d8"
+                "a30874cb.27537"
             ]
         ]
     },
     {
-        "id": "56e0043d.6c5974",
+        "id": "a30874cb.27537",
+        "type": "coap request",
+        "z": "6be78bf1.74a41c",
+        "method": "GET",
+        "observe": false,
+        "url": "coap://[aaaa::212:7402:2:202]/status",
+        "content-format": "application/json",
+        "raw-buffer": false,
+        "name": "",
+        "x": 380,
+        "y": 460,
+        "wires": [
+            [
+                "8979a7c4.b617e",
+                "2f0aba38.3ccd46"
+            ]
+        ]
+    },
+    {
+        "id": "8979a7c4.b617e",
         "type": "debug",
-        "z": "5b6227aa.3594c8",
+        "z": "6be78bf1.74a41c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 590,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "2f0aba38.3ccd46",
+        "type": "json",
+        "z": "6be78bf1.74a41c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 580,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8869795.66ff28",
+        "type": "coap request",
+        "z": "d2732bf5.cd5b98",
+        "method": "GET",
+        "observe": true,
+        "url": "coap://[aaaa::212:7403:3:303]/temperature/observe",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "COAP GET 2",
+        "x": 420,
+        "y": 60,
+        "wires": [
+            [
+                "72394a92.02cad4",
+                "81229520.75a5c"
+            ]
+        ]
+    },
+    {
+        "id": "72394a92.02cad4",
+        "type": "debug",
+        "z": "d2732bf5.cd5b98",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 700,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "1ed9a39b.f1840c",
+        "type": "ui_button",
+        "z": "d2732bf5.cd5b98",
+        "name": "",
+        "group": "daa3a66b.b751b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Get temperature",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [
+                "d8869795.66ff28"
+            ]
+        ]
+    },
+    {
+        "id": "81229520.75a5c",
+        "type": "ui_gauge",
+        "z": "d2732bf5.cd5b98",
+        "name": "",
+        "group": "daa3a66b.b751b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "17",
+        "seg2": "24",
+        "x": 690,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c81516a7.8f1ad8",
+        "type": "coap request",
+        "z": "17729526.555f63",
+        "method": "GET",
+        "observe": true,
+        "url": "coap://[aaaa::212:7404:4:404]/temperature/observe",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "COAP GET 3",
+        "x": 400,
+        "y": 60,
+        "wires": [
+            [
+                "85d30f0a.31c14",
+                "e4d8d01f.a72f88"
+            ]
+        ]
+    },
+    {
+        "id": "85d30f0a.31c14",
+        "type": "debug",
+        "z": "17729526.555f63",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -577,20 +671,20 @@
         "tostatus": false,
         "complete": "payload",
         "x": 680,
-        "y": 1040,
+        "y": 60,
         "wires": []
     },
     {
-        "id": "97b9bd41.aec6d8",
+        "id": "e4d8d01f.a72f88",
         "type": "ui_gauge",
-        "z": "5b6227aa.3594c8",
+        "z": "17729526.555f63",
         "name": "",
-        "group": "79d74e2c.30bb38",
+        "group": "4ebfc90a.e2073",
         "order": 1,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "Temperature 5",
+        "title": "Temperature 3",
         "label": "units",
         "format": "{{value}}",
         "min": "10",
@@ -603,20 +697,20 @@
         "seg1": "17",
         "seg2": "24",
         "x": 680,
-        "y": 1100,
+        "y": 120,
         "wires": []
     },
     {
-        "id": "c23bc17c.69b91",
+        "id": "20921f05.51d1c",
         "type": "ui_button",
-        "z": "5b6227aa.3594c8",
+        "z": "17729526.555f63",
         "name": "",
-        "group": "79d74e2c.30bb38",
+        "group": "4ebfc90a.e2073",
         "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "Get temperature 5",
+        "label": "Get temperature 3",
         "color": "",
         "bgcolor": "",
         "icon": "",
@@ -624,36 +718,36 @@
         "payloadType": "str",
         "topic": "",
         "x": 130,
-        "y": 1040,
+        "y": 60,
         "wires": [
             [
-                "482b720b.33d4b4"
+                "c81516a7.8f1ad8"
             ]
         ]
     },
     {
-        "id": "b22c45ee.dd59a8",
+        "id": "2108f63f.1092d2",
         "type": "coap request",
-        "z": "5b6227aa.3594c8",
+        "z": "c0a887e5.60bbc",
         "method": "GET",
-        "observe": false,
-        "url": "coap://[aaaa::212:7404:4:404]/temperature",
+        "observe": true,
+        "url": "coap://[aaaa::212:7405:5:505]/temperature/observe",
         "content-format": "text/plain",
         "raw-buffer": false,
         "name": "COAP GET 4",
         "x": 400,
-        "y": 880,
+        "y": 60,
         "wires": [
             [
-                "b813a068.8abed8",
-                "82bce337.315e6"
+                "172e24c3.d050d3",
+                "fdf97c08.7bcbd8"
             ]
         ]
     },
     {
-        "id": "b813a068.8abed8",
+        "id": "172e24c3.d050d3",
         "type": "debug",
-        "z": "5b6227aa.3594c8",
+        "z": "c0a887e5.60bbc",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -661,15 +755,15 @@
         "tostatus": false,
         "complete": "payload",
         "x": 680,
-        "y": 880,
+        "y": 60,
         "wires": []
     },
     {
-        "id": "82bce337.315e6",
+        "id": "fdf97c08.7bcbd8",
         "type": "ui_gauge",
-        "z": "5b6227aa.3594c8",
+        "z": "c0a887e5.60bbc",
         "name": "",
-        "group": "d1c7be24.25dca",
+        "group": "ecc1fbf5.602a28",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -687,15 +781,15 @@
         "seg1": "17",
         "seg2": "24",
         "x": 680,
-        "y": 940,
+        "y": 120,
         "wires": []
     },
     {
-        "id": "9f3b5edb.5c4fa8",
+        "id": "5212fb3c.d947ac",
         "type": "ui_button",
-        "z": "5b6227aa.3594c8",
+        "z": "c0a887e5.60bbc",
         "name": "",
-        "group": "d1c7be24.25dca",
+        "group": "ecc1fbf5.602a28",
         "order": 2,
         "width": 0,
         "height": 0,
@@ -708,81 +802,423 @@
         "payloadType": "str",
         "topic": "",
         "x": 130,
-        "y": 880,
+        "y": 60,
         "wires": [
             [
-                "b22c45ee.dd59a8"
+                "2108f63f.1092d2"
             ]
         ]
     },
     {
-        "id": "4c574c1b.98ac74",
-        "type": "ui_button",
-        "z": "5b6227aa.3594c8",
+        "id": "6695a922.8d029",
+        "type": "ui_switch",
+        "z": "d2732bf5.cd5b98",
         "name": "",
-        "group": "d9b77407.4d077",
-        "order": 0,
+        "label": "Heater",
+        "group": "daa3a66b.b751b",
+        "order": 4,
         "width": 0,
         "height": 0,
-        "passthru": false,
-        "label": "get status 2",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
+        "passthru": true,
+        "decouple": "false",
         "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "5691933e.0bbf9c"
+            ]
+        ]
+    },
+    {
+        "id": "a03132e4.b8595",
+        "type": "ui_switch",
+        "z": "d2732bf5.cd5b98",
+        "name": "",
+        "label": "Ventilation",
+        "group": "daa3a66b.b751b",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
         "x": 150,
-        "y": 700,
+        "y": 280,
         "wires": [
             [
-                "73f3636d.9faedc"
+                "8ec52590.f46828"
             ]
         ]
     },
     {
-        "id": "73f3636d.9faedc",
+        "id": "8bcc6fc1.6663d8",
+        "type": "ui_switch",
+        "z": "d2732bf5.cd5b98",
+        "name": "",
+        "label": "Air conditioning",
+        "group": "daa3a66b.b751b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 140,
+        "y": 340,
+        "wires": [
+            [
+                "537447a2.e222a"
+            ]
+        ]
+    },
+    {
+        "id": "5691933e.0bbf9c",
         "type": "coap request",
-        "z": "5b6227aa.3594c8",
-        "method": "GET",
+        "z": "d2732bf5.cd5b98",
+        "method": "PUT",
         "observe": false,
-        "url": "coap://[aaaa::212:7402:2:202]/status",
-        "content-format": "application/json",
+        "url": "coap://[aaaa::212:7403:3:303]/leds?color=r",
+        "content-format": "text/plain",
         "raw-buffer": false,
+        "name": "HEAT 2",
+        "x": 400,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "537447a2.e222a",
+        "type": "coap request",
+        "z": "d2732bf5.cd5b98",
+        "method": "PUT",
+        "observe": false,
+        "url": "coap://[aaaa::212:7403:3:303]/leds?color=b",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "CONDITIONING 2",
+        "x": 430,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8ec52590.f46828",
+        "type": "coap request",
+        "z": "d2732bf5.cd5b98",
+        "method": "PUT",
+        "observe": false,
+        "url": "coap://[aaaa::212:7403:3:303]/leds?color=g",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "VENTILATION 2",
+        "x": 420,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "68f2cf.d8756d3",
+        "type": "ui_switch",
+        "z": "17729526.555f63",
         "name": "",
-        "x": 360,
-        "y": 700,
+        "label": "Heater",
+        "group": "4ebfc90a.e2073",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 170,
+        "y": 220,
         "wires": [
             [
-                "b044bfde.9e7ef",
-                "f89ca2dc.2f5368"
+                "de7d37e5.4baf68"
             ]
         ]
     },
     {
-        "id": "b044bfde.9e7ef",
-        "type": "debug",
-        "z": "5b6227aa.3594c8",
+        "id": "17e35360.d9335d",
+        "type": "ui_switch",
+        "z": "17729526.555f63",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 570,
-        "y": 700,
-        "wires": []
+        "label": "Ventilation",
+        "group": "4ebfc90a.e2073",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "6b4fb9ea.bf2018"
+            ]
+        ]
     },
     {
-        "id": "f89ca2dc.2f5368",
-        "type": "json",
-        "z": "5b6227aa.3594c8",
+        "id": "2947bd90.70dc42",
+        "type": "ui_switch",
+        "z": "17729526.555f63",
         "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 560,
-        "y": 760,
+        "label": "Air conditioning",
+        "group": "4ebfc90a.e2073",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 140,
+        "y": 340,
+        "wires": [
+            [
+                "f5fa5e4c.7c3148"
+            ]
+        ]
+    },
+    {
+        "id": "de7d37e5.4baf68",
+        "type": "coap request",
+        "z": "17729526.555f63",
+        "method": "PUT",
+        "observe": false,
+        "url": "coap://[aaaa::212:7404:4:404]/leds?color=r",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "HEAT 3",
+        "x": 400,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f5fa5e4c.7c3148",
+        "type": "coap request",
+        "z": "17729526.555f63",
+        "method": "PUT",
+        "observe": false,
+        "url": "coap://[aaaa::212:7404:4:404]/leds?color=b",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "CONDITIONING 3",
+        "x": 430,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6b4fb9ea.bf2018",
+        "type": "coap request",
+        "z": "17729526.555f63",
+        "method": "PUT",
+        "observe": false,
+        "url": "coap://[aaaa::212:7404:4:404]/leds?color=g",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "VENTILATION 3",
+        "x": 420,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf666b6b.cb3cd8",
+        "type": "ui_switch",
+        "z": "c0a887e5.60bbc",
+        "name": "",
+        "label": "Heater",
+        "group": "ecc1fbf5.602a28",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "59e380ae.7e8cf"
+            ]
+        ]
+    },
+    {
+        "id": "8846c787.529dd",
+        "type": "ui_switch",
+        "z": "c0a887e5.60bbc",
+        "name": "",
+        "label": "Ventilation",
+        "group": "ecc1fbf5.602a28",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "d55f3774.a341f8"
+            ]
+        ]
+    },
+    {
+        "id": "1b2a7a8b.c3518d",
+        "type": "ui_switch",
+        "z": "c0a887e5.60bbc",
+        "name": "",
+        "label": "Air conditioning",
+        "group": "ecc1fbf5.602a28",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "mode=on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "mode=off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 140,
+        "y": 340,
+        "wires": [
+            [
+                "56e741f3.b59bd"
+            ]
+        ]
+    },
+    {
+        "id": "59e380ae.7e8cf",
+        "type": "coap request",
+        "z": "c0a887e5.60bbc",
+        "method": "PUT",
+        "observe": false,
+        "url": "coap://[aaaa::212:7405:5:505]/leds?color=r",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "HEAT 4",
+        "x": 400,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "56e741f3.b59bd",
+        "type": "coap request",
+        "z": "c0a887e5.60bbc",
+        "method": "PUT",
+        "observe": false,
+        "url": "coap://[aaaa::212:7405:5:505]/leds?color=b",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "CONDITIONING 4",
+        "x": 430,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d55f3774.a341f8",
+        "type": "coap request",
+        "z": "c0a887e5.60bbc",
+        "method": "PUT",
+        "observe": false,
+        "url": "coap://[aaaa::212:7405:5:505]/leds?color=g",
+        "content-format": "text/plain",
+        "raw-buffer": false,
+        "name": "VENTILATION 4",
+        "x": 420,
+        "y": 280,
         "wires": [
             []
         ]
