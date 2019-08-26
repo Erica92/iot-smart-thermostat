@@ -214,6 +214,7 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
 {
   const char *color = NULL;
   const char *mode = NULL;
+  const char *msg = NULL;
   uint8_t led = 0;
   int success = 1;
   uint8_t* unit_type_p = NULL;	//mantain the pointer to the type of engine to control
@@ -255,11 +256,13 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
         success = 0;
       } else {
         leds_on(led);
+        msg = "mode=on";
         *unit_type_p = 1;
       }
     } else if (strncmp(mode, "off", post_variable)==0) {
       //turn off the led and the corrisponding engine
       leds_off(led);
+      msg = "mode=off";
       *unit_type_p = 0;
     } else {
       success = 0;
@@ -271,7 +274,10 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
   //TODO gestire la mutua esclusione e l'errore ritornato
   if (!success) {
     REST.set_response_status(response, REST.status.NOT_ACCEPTABLE);
-    const char *msg = "mode=off";
+    msg = "KO";
+    REST.set_response_payload(response, msg, strlen(msg));
+  } else if (success) {
+    REST.set_header_content_type(response, REST.type.TEXT_PLAIN);
     REST.set_response_payload(response, msg, strlen(msg));
   }
 }
