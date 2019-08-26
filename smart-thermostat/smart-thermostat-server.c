@@ -145,13 +145,13 @@ temperature_handler(void* request, void* response, uint8_t *buffer, uint16_t pre
 /******************* temperature observe **********************************/
 #if REST_RES_PUSHING
 
-PERIODIC_RESOURCE(tempobs, METHOD_GET, "temperature", "title=\"Temperature observe\";obs", 5*CLOCK_SECOND);
+PERIODIC_RESOURCE(tempobs, METHOD_GET, "temperature", "title=\"Temperature observe\";obs", 5*CLOCK_SECOND); //every 5 seconds
 
 void
 tempobs_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
 {
-//TODO Forse questo metodo risponde quando si registra. ma si deve registrare in automatico?
-	PRINTF("tempobs_handler: %u", thermostat_status.temp);
+  //TODO Forse questo metodo risponde quando si registra. ma si deve registrare in automatico?
+  PRINTF("tempobs_handler: %u", thermostat_status.temp);
   REST.set_header_content_type(response, REST.type.TEXT_PLAIN);
   //REST.set_response_payload(response, msg, strlen(msg));
   snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "%u", thermostat_status.temp);
@@ -228,15 +228,15 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
     //PRINTF("color %.*s\n", len, color);
 
     if (strncmp(color, "r", query_variable)==0) {
-    	//heating
+      //heating
       led = LEDS_RED;
       unit_type_p = &thermostat_status.heating;
     } else if(strncmp(color,"g", query_variable)==0) {
-    	//ventilation
+      //ventilation
       led = LEDS_GREEN;
       unit_type_p = &thermostat_status.ventilation;
     } else if (strncmp(color,"b", query_variable)==0) {
-    	//air conditioning
+      //air conditioning
       led = LEDS_BLUE;
       unit_type_p = &thermostat_status.air_conditioning;
     } else {
@@ -250,11 +250,15 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
     //PRINTF("mode %s\n", mode);
 
     if (strncmp(mode, "on", post_variable)==0) {
-    	//turn on the led and the corrisponding engine
-      leds_on(led);
-      *unit_type_p = 1;
+      //turn on the led and the corrisponding engine
+      if ((led == LEDS_RED && thermostat_status.air_conditioning) || (led == LEDS_BLUE && thermostat_status.heating)) {
+        success = 0;
+      } else {
+        leds_on(led);
+        *unit_type_p = 1;
+      }
     } else if (strncmp(mode, "off", post_variable)==0) {
-    	//turn off the led and the corrisponding engine
+      //turn off the led and the corrisponding engine
       leds_off(led);
       *unit_type_p = 0;
     } else {
@@ -263,12 +267,15 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
   } else {
     success = 0;
   }
-
-	//TODO gestire la mutua esclusione e l'errore ritornato
+  
+  //TODO gestire la mutua esclusione e l'errore ritornato
   if (!success) {
-    REST.set_response_status(response, REST.status.BAD_REQUEST);
+    REST.set_response_status(response, REST.status.NOT_ACCEPTABLE);
+    const char *msg = "mode=off";
+    REST.set_response_payload(response, msg, strlen(msg));
   }
 }
+
 #endif
 
 /******************************************************************************/
@@ -283,8 +290,6 @@ toggle_handler(void* request, void* response, uint8_t *buffer, uint16_t preferre
 }
 #endif
 #endif /* PLATFORM_HAS_LEDS */
-
-
 
 /******************************************************************************/
 #if REST_RES_CHUNKS
@@ -445,7 +450,6 @@ separate_finalize_handler()
 }
 #endif
 
-
 /******************************************************************************/
 #if REST_RES_EVENT && defined (PLATFORM_HAS_BUTTON)
 /*
@@ -518,11 +522,7 @@ sub_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_s
 }
 #endif
 
-
-
 /******************************************************************************/
-
-
 PROCESS(thermostat_server_process, "Smart Thermostat Server");
 AUTOSTART_PROCESSES(&thermostat_server_process);
 
@@ -608,7 +608,7 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
   static struct etimer timer;
   
   /* Thermostat internal logic */
-  etimer_set(&timer, CLOCK_SECOND * 20);	//TODO 20 secondi
+  etimer_set(&timer, CLOCK_SECOND * 20);  //TODO every 20 seconds
   //TODO questa versione basic: si puo evitare che si svegli ogni 20 sec se in stand by
   
   while(1) {
@@ -622,13 +622,15 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
     		vent_multiplier = 2;
     	}
     	
-    	if(thermostat_status.heating == 1 && thermostat_status.temp < 30){
-    		thermostat_status.temp += 1 * vent_multiplier; //TODO attenzione che puo far 31
+    	if(thermostat_status.heating == 1){ // && thermostat_status.temp < 30){
+    		thermostat_status.temp += 1 * vent_multiplier;
     	}
     	
-    	if(thermostat_status.air_conditioning == 1 && thermostat_status.temp > 10){
-    		thermostat_status.temp -= 1 * vent_multiplier;  //TODO attenzione che puo far -1
+    	if(thermostat_status.air_conditioning == 1){ // && thermostat_status.temp > 10){
+    		thermostat_status.temp -= 1 * vent_multiplier;
     	}
+    	
+    	// TODO alert per temperatura fuori range
     	
     	etimer_reset(&timer);
     }
