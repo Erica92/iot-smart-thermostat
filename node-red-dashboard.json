@@ -209,7 +209,8 @@
         "wires": [
             [
                 "ecc4ea7e.134878",
-                "b11bc2f4.3b8f1"
+                "b11bc2f4.3b8f1",
+                "29af844a.e78524"
             ]
         ]
     },
@@ -1144,7 +1145,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 120,
-        "y": 200,
+        "y": 460,
         "wires": [
             [
                 "8d771cba.49088"
@@ -1160,7 +1161,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 320,
-        "y": 200,
+        "y": 460,
         "wires": [
             [
                 "ba5bb762.40fa5"
@@ -1177,7 +1178,7 @@
         "url": "",
         "tls": "",
         "x": 580,
-        "y": 200,
+        "y": 460,
         "wires": [
             [
                 "ff882ee7.966798"
@@ -1195,19 +1196,19 @@
         "tostatus": false,
         "complete": "false",
         "x": 810,
-        "y": 200,
+        "y": 460,
         "wires": []
     },
     {
         "id": "21597aa3.093f86",
         "type": "mqtt in",
         "z": "bb9dddf8.757a9",
-        "name": "subscribe temp",
+        "name": "subscribe temp house",
         "topic": "channels/851882/subscribe/json/NBTNJCPF9CV4C96N",
         "qos": "0",
         "broker": "9ae48478.34a02",
-        "x": 120,
-        "y": 300,
+        "x": 140,
+        "y": 40,
         "wires": [
             [
                 "127322cb.7e6d45"
@@ -1218,13 +1219,13 @@
         "id": "f348a01e.4c7268",
         "type": "mqtt out",
         "z": "bb9dddf8.757a9",
-        "name": "publish temp",
+        "name": "publish temp house",
         "topic": "channels/851882/publish/5M6JE0B87TULE88F",
         "qos": "0",
         "retain": "",
         "broker": "9ae48478.34a02",
-        "x": 510,
-        "y": 380,
+        "x": 560,
+        "y": 120,
         "wires": []
     },
     {
@@ -1235,12 +1236,12 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "repeat": "",
+        "repeat": "60",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 100,
-        "y": 380,
+        "x": 130,
+        "y": 120,
         "wires": [
             [
                 "a93fac96.67fcd"
@@ -1253,12 +1254,12 @@
         "z": "bb9dddf8.757a9",
         "name": "",
         "active": true,
-        "tosidebar": true,
+        "tosidebar": false,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
         "x": 390,
-        "y": 300,
+        "y": 40,
         "wires": []
     },
     {
@@ -1266,14 +1267,15 @@
         "type": "function",
         "z": "bb9dddf8.757a9",
         "name": "set temp",
-        "func": "msg.payload=\"field1=23\"\nreturn msg;",
+        "func": "var count1 = global.get('count1');\nvar sum1 = global.get('sum1');\nvar avg1 = parseInt(sum1)/parseInt(count1);\navg1 = Math.round(avg1*10)/10;\nmsg.payload=\"field1=\"+avg1;\nglobal.set('count1',0);\nglobal.set('sum1',0);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 290,
-        "y": 380,
+        "x": 310,
+        "y": 120,
         "wires": [
             [
-                "f348a01e.4c7268"
+                "f348a01e.4c7268",
+                "94394086.75eca"
             ]
         ]
     },
@@ -1535,5 +1537,33 @@
                 "edba9182.437758"
             ]
         ]
+    },
+    {
+        "id": "29af844a.e78524",
+        "type": "function",
+        "z": "162b18ba.b6d5bf",
+        "name": "store misuration 1",
+        "func": "var count1 = global.get('count1') || 0;\nvar sum1 = global.get('sum1') || 0;\nsum1 = parseInt(sum1) + parseInt(msg.payload);\ncount1 += 1;\nglobal.set('count1', count1);\nglobal.set('sum1', sum1);\nmsg.payload = sum1;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "94394086.75eca",
+        "type": "debug",
+        "z": "bb9dddf8.757a9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 530,
+        "y": 200,
+        "wires": []
     }
 ]
