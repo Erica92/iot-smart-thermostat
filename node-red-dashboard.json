@@ -217,44 +217,11 @@
         "id": "4485a3a6.7e585c",
         "type": "ui_group",
         "z": "",
-        "name": "Room 1",
+        "name": "Rooms",
         "tab": "381357f2.6ad87",
         "order": 2,
         "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "92b97629.54b6a8",
-        "type": "ui_group",
-        "z": "",
-        "name": "Room 2",
-        "tab": "381357f2.6ad87",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "eb935429.13f7f",
-        "type": "ui_group",
-        "z": "",
-        "name": "Room 3",
-        "tab": "381357f2.6ad87",
-        "order": 4,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
-        "id": "cbcfc742.41e69",
-        "type": "ui_group",
-        "z": "",
-        "name": "Room 4",
-        "tab": "381357f2.6ad87",
-        "order": 5,
-        "disp": true,
-        "width": "6",
+        "width": "12",
         "collapse": false
     },
     {
@@ -282,7 +249,7 @@
         "type": "debug",
         "z": "162b18ba.b6d5bf",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": true,
         "tostatus": false,
@@ -605,7 +572,7 @@
         "type": "debug",
         "z": "162b18ba.b6d5bf",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -811,7 +778,7 @@
         "type": "debug",
         "z": "162b18ba.b6d5bf",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -871,7 +838,7 @@
         "type": "debug",
         "z": "162b18ba.b6d5bf",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1223,8 +1190,8 @@
         "qos": "0",
         "retain": "",
         "broker": "9ae48478.34a02",
-        "x": 680,
-        "y": 780,
+        "x": 660,
+        "y": 840,
         "wires": []
     },
     {
@@ -1239,8 +1206,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 110,
-        "y": 660,
+        "x": 90,
+        "y": 720,
         "wires": [
             [
                 "a93fac96.67fcd",
@@ -1253,7 +1220,7 @@
         "type": "debug",
         "z": "bb9dddf8.757a9",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1270,8 +1237,8 @@
         "func": "var mote1 = global.get('mote1');\nvar mote2 = global.get('mote2');\nvar mote3 = global.get('mote3');\nvar mote4 = global.get('mote4');\n\nvar totalSum = parseInt(mote1.sum) + parseInt(mote2.sum) + parseInt(mote3.sum) + parseInt(mote4.sum);\nvar totalCount = parseInt(mote1.count) + parseInt(mote2.count) + parseInt(mote3.count) + parseInt(mote4.count);\n\nvar avg = totalSum/totalCount;\navg = Math.round(avg*10)/10;\nmsg.payload=\"field1=\"+avg;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 370,
-        "y": 780,
+        "x": 350,
+        "y": 840,
         "wires": [
             [
                 "f348a01e.4c7268",
@@ -1548,8 +1515,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 650,
-        "y": 560,
+        "x": 630,
+        "y": 620,
         "wires": []
     },
     {
@@ -1619,7 +1586,7 @@
         "qos": "0",
         "broker": "9ae48478.34a02",
         "x": 140,
-        "y": 260,
+        "y": 440,
         "wires": [
             [
                 "ae891000.3134b8"
@@ -1637,7 +1604,7 @@
         "tostatus": false,
         "complete": "payload",
         "x": 550,
-        "y": 180,
+        "y": 360,
         "wires": []
     },
     {
@@ -1649,8 +1616,8 @@
         "qos": "0",
         "retain": "",
         "broker": "9ae48478.34a02",
-        "x": 680,
-        "y": 500,
+        "x": 660,
+        "y": 560,
         "wires": []
     },
     {
@@ -1661,8 +1628,8 @@
         "func": "function moteAvgTemp(moteName){\n\n    var mote = global.get(moteName);\n    var avg = parseInt(mote.sum)/parseInt(mote.count);\n    avg = Math.round(avg*10)/10;\n\n    return avg;\n}\n\nvar avg1 = moteAvgTemp('mote1');\nvar avg2 = moteAvgTemp('mote2');\nvar avg3 = moteAvgTemp('mote3');\nvar avg4 = moteAvgTemp('mote4');\n\n\nmsg.payload=\"field1=\"+avg1+\"&field2=\"+avg2+\"&field3=\"+avg3+\"&field4=\"+avg4;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 390,
-        "y": 560,
+        "x": 370,
+        "y": 620,
         "wires": [
             [
                 "c49e0d51.3e2338",
@@ -1691,8 +1658,8 @@
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 630,
-        "y": 660,
+        "x": 610,
+        "y": 720,
         "wires": [
             [
                 "4ca8bca3.3ffe54"
@@ -1704,11 +1671,11 @@
         "type": "function",
         "z": "bb9dddf8.757a9",
         "name": "clean",
-        "func": "global.get('mote1', {count: 0,sum: 0});\nglobal.get('mote2', {count: 0,sum: 0});\nglobal.get('mote3', {count: 0,sum: 0});\nglobal.get('mote4', {count: 0,sum: 0});\nmsg.payload = 'Both published';\nreturn msg;",
+        "func": "global.set('mote1', {count: 0,sum: 0});\nglobal.set('mote2', {count: 0,sum: 0});\nglobal.set('mote3', {count: 0,sum: 0});\nglobal.set('mote4', {count: 0,sum: 0});\nmsg.payload = 'Both published';\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 790,
-        "y": 660,
+        "x": 770,
+        "y": 720,
         "wires": [
             []
         ]
@@ -1733,7 +1700,7 @@
         "z": "bb9dddf8.757a9",
         "name": "Chart House",
         "group": "e0ede54c.052198",
-        "order": 0,
+        "order": 1,
         "width": "0",
         "height": "0",
         "label": "Average House Temperature",
@@ -1811,14 +1778,11 @@
         "action": "",
         "pretty": false,
         "x": 350,
-        "y": 260,
+        "y": 440,
         "wires": [
             [
                 "44a00c39.365fdc",
-                "aba9c24.769994",
-                "cb5623ba.f8edc",
-                "51480ad2.e73f84",
-                "f18bf102.cda558"
+                "aba9c24.769994"
             ]
         ]
     },
@@ -1828,12 +1792,12 @@
         "z": "bb9dddf8.757a9",
         "name": "Chart House",
         "group": "4485a3a6.7e585c",
-        "order": 0,
+        "order": 1,
         "width": "0",
         "height": "0",
         "label": "Average House Temperature",
         "chartType": "line",
-        "legend": "false",
+        "legend": "true",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
@@ -1858,7 +1822,7 @@
         ],
         "useOldStyle": false,
         "x": 790,
-        "y": 260,
+        "y": 440,
         "wires": [
             [],
             []
@@ -1869,11 +1833,98 @@
         "type": "function",
         "z": "bb9dddf8.757a9",
         "name": "parse field1",
-        "func": "msg.payload = msg.payload.field1;\nreturn msg;",
-        "outputs": 1,
+        "func": "var msg1 = {};\nvar msg2 = {};\nvar msg3 = {};\nvar msg4 = {};\n\nmsg1.payload = msg.payload.field1;\nmsg1.topic = 'Room 1';\n\nmsg2.payload = msg.payload.field2;\nmsg2.topic = 'Room 2';\n\nmsg3.payload = msg.payload.field3;\nmsg3.topic = 'Room 3';\n\nmsg4.payload = msg.payload.field4;\nmsg4.topic = 'Room 4';\n\nreturn [msg1, msg2, msg3, msg4];",
+        "outputs": 4,
         "noerr": 0,
         "x": 550,
-        "y": 260,
+        "y": 440,
+        "wires": [
+            [
+                "f1766254.cd2c98"
+            ],
+            [
+                "f1766254.cd2c98"
+            ],
+            [
+                "f1766254.cd2c98"
+            ],
+            [
+                "f1766254.cd2c98"
+            ]
+        ]
+    },
+    {
+        "id": "6f335422.d9f444",
+        "type": "inject",
+        "z": "bb9dddf8.757a9",
+        "name": "clean chart",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "75282cab.c99a2c",
+                "240bfbde.4317e4"
+            ]
+        ]
+    },
+    {
+        "id": "75282cab.c99a2c",
+        "type": "function",
+        "z": "bb9dddf8.757a9",
+        "name": "empty payload",
+        "func": "msg.payload = [];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "30a9be35.314be2"
+            ]
+        ]
+    },
+    {
+        "id": "91de6160.7ddc68",
+        "type": "ui_button",
+        "z": "bb9dddf8.757a9",
+        "name": "",
+        "group": "e0ede54c.052198",
+        "order": 2,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Clean house chart",
+        "color": "",
+        "bgcolor": "",
+        "icon": "fa-eraser",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "75282cab.c99a2c"
+            ]
+        ]
+    },
+    {
+        "id": "240bfbde.4317e4",
+        "type": "function",
+        "z": "bb9dddf8.757a9",
+        "name": "empty payload",
+        "func": "msg.payload = [];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 240,
         "wires": [
             [
                 "f1766254.cd2c98"
@@ -1881,176 +1932,27 @@
         ]
     },
     {
-        "id": "e53a297e.d62d58",
-        "type": "ui_chart",
+        "id": "7e8aa565.76d51c",
+        "type": "ui_button",
         "z": "bb9dddf8.757a9",
-        "name": "Chart House",
-        "group": "92b97629.54b6a8",
-        "order": 0,
-        "width": "0",
-        "height": "0",
-        "label": "Average House Temperature",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "-10",
-        "ymax": "50",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "useOldStyle": false,
-        "x": 790,
-        "y": 300,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "cb5623ba.f8edc",
-        "type": "function",
-        "z": "bb9dddf8.757a9",
-        "name": "parse field2",
-        "func": "msg.payload = msg.payload.field2;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 300,
+        "name": "",
+        "group": "4485a3a6.7e585c",
+        "order": 2,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Clean rooms chart",
+        "color": "",
+        "bgcolor": "",
+        "icon": "fa-eraser",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 270,
+        "y": 280,
         "wires": [
             [
-                "e53a297e.d62d58"
-            ]
-        ]
-    },
-    {
-        "id": "11cd6875.c85e78",
-        "type": "ui_chart",
-        "z": "bb9dddf8.757a9",
-        "name": "Chart House",
-        "group": "eb935429.13f7f",
-        "order": 0,
-        "width": "0",
-        "height": "0",
-        "label": "Average House Temperature",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "-10",
-        "ymax": "50",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "useOldStyle": false,
-        "x": 790,
-        "y": 340,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "51480ad2.e73f84",
-        "type": "function",
-        "z": "bb9dddf8.757a9",
-        "name": "parse field3",
-        "func": "msg.payload = msg.payload.field3;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 340,
-        "wires": [
-            [
-                "11cd6875.c85e78"
-            ]
-        ]
-    },
-    {
-        "id": "809cfee9.4c00f8",
-        "type": "ui_chart",
-        "z": "bb9dddf8.757a9",
-        "name": "Chart House",
-        "group": "cbcfc742.41e69",
-        "order": 0,
-        "width": "0",
-        "height": "0",
-        "label": "Average House Temperature",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "-10",
-        "ymax": "50",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "useOldStyle": false,
-        "x": 790,
-        "y": 380,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "f18bf102.cda558",
-        "type": "function",
-        "z": "bb9dddf8.757a9",
-        "name": "parse field4",
-        "func": "msg.payload = msg.payload.field4;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 550,
-        "y": 380,
-        "wires": [
-            [
-                "809cfee9.4c00f8"
+                "240bfbde.4317e4"
             ]
         ]
     }
