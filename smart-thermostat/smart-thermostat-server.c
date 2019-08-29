@@ -628,11 +628,11 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
     		vent_multiplier = 2;
     	}
     	
-    	if(thermostat_status.heating == 1){ // && thermostat_status.temp < 30){
+    	if(thermostat_status.heating == 1 && thermostat_status.temp < 50){
     		thermostat_status.temp += 1 * vent_multiplier;
     	}
     	
-    	if(thermostat_status.air_conditioning == 1){ // && thermostat_status.temp > 10){
+    	if(thermostat_status.air_conditioning == 1 && thermostat_status.temp > 1){
     		thermostat_status.temp -= 1 * vent_multiplier;
     	}
     	

@@ -115,7 +115,7 @@
         "z": "",
         "name": "Room 1",
         "tab": "9ba36d27.0853f8",
-        "order": 2,
+        "order": 3,
         "disp": false,
         "width": "6",
         "collapse": false
@@ -126,7 +126,7 @@
         "z": "",
         "name": "Room 2",
         "tab": "9ba36d27.0853f8",
-        "order": 3,
+        "order": 4,
         "disp": false,
         "width": "6",
         "collapse": false
@@ -145,7 +145,7 @@
         "z": "",
         "name": "Room 3",
         "tab": "9ba36d27.0853f8",
-        "order": 4,
+        "order": 5,
         "disp": false,
         "width": "6",
         "collapse": false
@@ -156,7 +156,7 @@
         "z": "",
         "name": "Room 4",
         "tab": "9ba36d27.0853f8",
-        "order": 5,
+        "order": 6,
         "disp": false,
         "width": "6",
         "collapse": false
@@ -225,6 +225,27 @@
         "collapse": false
     },
     {
+        "id": "625d222a.1307f4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Functions",
+        "tab": "381357f2.6ad87",
+        "disp": false,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "1c34babb.506415",
+        "type": "ui_group",
+        "z": "",
+        "name": "E-mail alert",
+        "tab": "9ba36d27.0853f8",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
         "id": "d7f0b5b9.ddf51",
         "type": "coap request",
         "z": "162b18ba.b6d5bf",
@@ -283,78 +304,6 @@
         "x": 680,
         "y": 80,
         "wires": []
-    },
-    {
-        "id": "5767215d.b289",
-        "type": "ui_button",
-        "z": "162b18ba.b6d5bf",
-        "name": "",
-        "group": "41bf1a8c.2ffa6c",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "get status",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 130,
-        "y": 680,
-        "wires": [
-            [
-                "9926b863.882788"
-            ]
-        ]
-    },
-    {
-        "id": "9926b863.882788",
-        "type": "coap request",
-        "z": "162b18ba.b6d5bf",
-        "method": "GET",
-        "observe": false,
-        "url": "coap://[aaaa::212:7402:2:202]/status",
-        "content-format": "application/json",
-        "raw-buffer": false,
-        "name": "",
-        "x": 350,
-        "y": 680,
-        "wires": [
-            [
-                "cebd805d.58fda8",
-                "811f1f85.e4c608"
-            ]
-        ]
-    },
-    {
-        "id": "cebd805d.58fda8",
-        "type": "debug",
-        "z": "162b18ba.b6d5bf",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 560,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "811f1f85.e4c608",
-        "type": "json",
-        "z": "162b18ba.b6d5bf",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 550,
-        "y": 740,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "c745d01e.c1424",
@@ -460,8 +409,8 @@
         "y": 80,
         "wires": [
             [
-                "4dc9e21c.3b0824",
-                "c745d01e.c1424"
+                "c745d01e.c1424",
+                "31065cca.8bc58c"
             ]
         ]
     },
@@ -479,8 +428,8 @@
         "y": 440,
         "wires": [
             [
-                "4dc9e21c.3b0824",
-                "6a5ae73b.6496"
+                "6a5ae73b.6496",
+                "31065cca.8bc58c"
             ]
         ]
     },
@@ -498,7 +447,7 @@
         "y": 260,
         "wires": [
             [
-                "4dc9e21c.3b0824"
+                "31065cca.8bc58c"
             ]
         ]
     },
@@ -711,8 +660,8 @@
         "y": 40,
         "wires": [
             [
-                "4dc9e21c.3b0824",
-                "d137ab33.0018a"
+                "d137ab33.0018a",
+                "31065cca.8bc58c"
             ]
         ]
     },
@@ -730,8 +679,8 @@
         "y": 400,
         "wires": [
             [
-                "4dc9e21c.3b0824",
-                "b0d44f9e.68599"
+                "b0d44f9e.68599",
+                "31065cca.8bc58c"
             ]
         ]
     },
@@ -749,7 +698,7 @@
         "y": 220,
         "wires": [
             [
-                "4dc9e21c.3b0824"
+                "31065cca.8bc58c"
             ]
         ]
     },
@@ -977,8 +926,8 @@
         "y": 120,
         "wires": [
             [
-                "4dc9e21c.3b0824",
-                "f36c7ff.ece18"
+                "f36c7ff.ece18",
+                "31065cca.8bc58c"
             ]
         ]
     },
@@ -996,8 +945,8 @@
         "y": 480,
         "wires": [
             [
-                "4dc9e21c.3b0824",
-                "c54f21e4.607c2"
+                "c54f21e4.607c2",
+                "31065cca.8bc58c"
             ]
         ]
     },
@@ -1015,7 +964,7 @@
         "y": 300,
         "wires": [
             [
-                "4dc9e21c.3b0824"
+                "31065cca.8bc58c"
             ]
         ]
     },
@@ -1123,8 +1072,8 @@
         "y": 160,
         "wires": [
             [
-                "4dc9e21c.3b0824",
-                "b5c953dc.aacc98"
+                "b5c953dc.aacc98",
+                "31065cca.8bc58c"
             ]
         ]
     },
@@ -1142,8 +1091,8 @@
         "y": 520,
         "wires": [
             [
-                "4dc9e21c.3b0824",
-                "d29ca62a.128a5"
+                "d29ca62a.128a5",
+                "31065cca.8bc58c"
             ]
         ]
     },
@@ -1161,7 +1110,7 @@
         "y": 340,
         "wires": [
             [
-                "4dc9e21c.3b0824"
+                "31065cca.8bc58c"
             ]
         ]
     },
@@ -1190,8 +1139,8 @@
         "qos": "0",
         "retain": "",
         "broker": "9ae48478.34a02",
-        "x": 660,
-        "y": 840,
+        "x": 700,
+        "y": 820,
         "wires": []
     },
     {
@@ -1206,8 +1155,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 90,
-        "y": 720,
+        "x": 130,
+        "y": 700,
         "wires": [
             [
                 "a93fac96.67fcd",
@@ -1237,8 +1186,8 @@
         "func": "var mote1 = global.get('mote1');\nvar mote2 = global.get('mote2');\nvar mote3 = global.get('mote3');\nvar mote4 = global.get('mote4');\n\nvar totalSum = parseInt(mote1.sum) + parseInt(mote2.sum) + parseInt(mote3.sum) + parseInt(mote4.sum);\nvar totalCount = parseInt(mote1.count) + parseInt(mote2.count) + parseInt(mote3.count) + parseInt(mote4.count);\n\nvar avg = totalSum/totalCount;\navg = Math.round(avg*10)/10;\nmsg.payload=\"field1=\"+avg;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 350,
-        "y": 840,
+        "x": 390,
+        "y": 820,
         "wires": [
             [
                 "f348a01e.4c7268",
@@ -1251,14 +1200,14 @@
         "type": "ui_toast",
         "z": "bca9fdad.0a306",
         "position": "bottom right",
-        "displayTime": "3",
+        "displayTime": "4",
         "highlight": "",
         "outputs": 0,
         "ok": "OK",
         "cancel": "",
         "topic": "",
         "name": "",
-        "x": 1170,
+        "x": 1190,
         "y": 440,
         "wires": []
     },
@@ -1274,25 +1223,7 @@
                 "pt": "msg",
                 "from": "KO",
                 "fromt": "str",
-                "to": "Bad request",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "mode=on",
-                "fromt": "str",
-                "to": "Done",
-                "tot": "str"
-            },
-            {
-                "t": "change",
-                "p": "payload",
-                "pt": "msg",
-                "from": "mode=off",
-                "fromt": "str",
-                "to": "Done",
+                "to": "Error: Air conditioning and Heating cannot be active at the same time",
                 "tot": "str"
             }
         ],
@@ -1301,11 +1232,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1140,
-        "y": 280,
+        "x": 1200,
+        "y": 360,
         "wires": [
             [
-                "6b8289ed.7efd"
+                "edba9182.437758"
             ]
         ]
     },
@@ -1317,12 +1248,12 @@
         "group": "33444e6a.3cf4ea",
         "order": 3,
         "width": "3",
-        "height": "2",
+        "height": "1",
         "passthru": false,
         "label": "Heating on",
         "color": "",
         "bgcolor": "#009900",
-        "icon": "",
+        "icon": "fa-power-off",
         "payload": "mode=on",
         "payloadType": "str",
         "topic": "",
@@ -1333,7 +1264,8 @@
                 "acd29d04.87212",
                 "f1affc16.41ce78",
                 "b46ed5a1.6fafb8",
-                "418d8c07.6c8c2c"
+                "418d8c07.6c8c2c",
+                "dd48bbc2.301ec"
             ]
         ]
     },
@@ -1345,7 +1277,7 @@
         "group": "33444e6a.3cf4ea",
         "order": 1,
         "width": "3",
-        "height": "2",
+        "height": "1",
         "passthru": false,
         "label": "Conditioning on",
         "color": "",
@@ -1373,7 +1305,7 @@
         "group": "33444e6a.3cf4ea",
         "order": 5,
         "width": "3",
-        "height": "2",
+        "height": "1",
         "passthru": false,
         "label": "Ventilation on",
         "color": "",
@@ -1401,7 +1333,7 @@
         "group": "33444e6a.3cf4ea",
         "order": 4,
         "width": "3",
-        "height": "2",
+        "height": "1",
         "passthru": true,
         "label": "Heating off",
         "color": "",
@@ -1429,7 +1361,7 @@
         "group": "33444e6a.3cf4ea",
         "order": 6,
         "width": "3",
-        "height": "2",
+        "height": "1",
         "passthru": true,
         "label": "Ventilation off",
         "color": "",
@@ -1457,7 +1389,7 @@
         "group": "33444e6a.3cf4ea",
         "order": 2,
         "width": "3",
-        "height": "2",
+        "height": "1",
         "passthru": true,
         "label": "Conditioning off",
         "color": "",
@@ -1478,45 +1410,17 @@
         ]
     },
     {
-        "id": "6b8289ed.7efd",
-        "type": "join",
-        "z": "bca9fdad.0a306",
-        "name": "",
-        "mode": "custom",
-        "build": "string",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n\\n",
-        "joinerType": "str",
-        "accumulate": false,
-        "timeout": "2",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "num",
-        "reduceFixup": "",
-        "x": 1190,
-        "y": 360,
-        "wires": [
-            [
-                "edba9182.437758"
-            ]
-        ]
-    },
-    {
         "id": "94394086.75eca",
         "type": "debug",
         "z": "bb9dddf8.757a9",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 630,
-        "y": 620,
+        "x": 670,
+        "y": 600,
         "wires": []
     },
     {
@@ -1524,8 +1428,8 @@
         "type": "debug",
         "z": "162b18ba.b6d5bf",
         "name": "debut mote1",
-        "active": true,
-        "tosidebar": false,
+        "active": false,
+        "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "true",
@@ -1538,13 +1442,15 @@
         "type": "function",
         "z": "162b18ba.b6d5bf",
         "name": "store temp 3",
-        "func": "var emptyMote={\n    count: 0,\n    sum: 0\n};\n\nvar moteName = 'mote3';\n\nvar mote = global.get(moteName) || emptyMote;\nvar count = mote.count;\nvar sum = mote.sum;\n\nsum = parseInt(sum) + parseInt(msg.payload);\ncount = count + 1;\n\nmote.sum = sum;\nmote.count = count;\nglobal.set(moteName, mote);\n\nmsg.payload = mote;\nreturn msg;",
+        "func": "var emptyMote={\n    count: 0,\n    sum: 0\n};\n\nvar moteName = 'mote3';\n\nvar mote = global.get(moteName) || emptyMote;\nvar count = mote.count;\nvar sum = mote.sum;\n\nsum = parseInt(sum) + parseInt(msg.payload);\ncount = count + 1;\n\nmote.sum = sum;\nmote.count = count;\nglobal.set(moteName, mote);\n\nif (global.get('notification')) {\n    mote.temperature = parseInt(msg.payload);\n    mote.payload = \"Temperature in Room 3 is exceeding the treshold. Current temperature is \" + msg.payload + \" degrees.\";\n    msg.payload = mote;\n    msg.topic = 'Room 3 alert!';\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "x": 690,
         "y": 420,
         "wires": [
-            []
+            [
+                "882d0fdd.1b5ab"
+            ]
         ]
     },
     {
@@ -1552,13 +1458,15 @@
         "type": "function",
         "z": "162b18ba.b6d5bf",
         "name": "store temp 4",
-        "func": "var emptyMote={\n    count: 0,\n    sum: 0\n};\n\nvar moteName = 'mote4';\n\nvar mote = global.get(moteName) || emptyMote;\nvar count = mote.count;\nvar sum = mote.sum;\n\nsum = parseInt(sum) + parseInt(msg.payload);\ncount = count + 1;\n\nmote.sum = sum;\nmote.count = count;\nglobal.set(moteName, mote);\n\nmsg.payload = mote;\nreturn msg;",
+        "func": "var emptyMote={\n    count: 0,\n    sum: 0\n};\n\nvar moteName = 'mote4';\n\nvar mote = global.get(moteName) || emptyMote;\nvar count = mote.count;\nvar sum = mote.sum;\n\nsum = parseInt(sum) + parseInt(msg.payload);\ncount = count + 1;\n\nmote.sum = sum;\nmote.count = count;\nglobal.set(moteName, mote);\n\nif (global.get('notification')) {\n    mote.temperature = parseInt(msg.payload);\n    mote.payload = \"Temperature in Room 4 is exceeding the treshold. Current temperature is \" + msg.payload + \" degrees.\";\n    msg.payload = mote;\n    msg.topic = 'Room 4 alert!';\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "x": 690,
         "y": 560,
         "wires": [
-            []
+            [
+                "882d0fdd.1b5ab"
+            ]
         ]
     },
     {
@@ -1566,14 +1474,15 @@
         "type": "function",
         "z": "162b18ba.b6d5bf",
         "name": "store temp 1",
-        "func": "var emptyMote={\n    count: 0,\n    sum: 0\n};\n\nvar moteName = 'mote1';\n\nvar mote = global.get(moteName) || emptyMote;\nvar count = mote.count;\nvar sum = mote.sum;\n\nsum = parseInt(sum) + parseInt(msg.payload);\ncount = count + 1;\n\nmote.sum = sum;\nmote.count = count;\nglobal.set(moteName, mote);\n\nmsg.payload = mote;\nreturn msg;",
+        "func": "var emptyMote={\n    count: 0,\n    sum: 0\n};\n\nvar moteName = 'mote1';\n\nvar mote = global.get(moteName) || emptyMote;\nvar count = mote.count;\nvar sum = mote.sum;\n\nsum = parseInt(sum) + parseInt(msg.payload);\ncount = count + 1;\n\nmote.sum = sum;\nmote.count = count;\nglobal.set(moteName, mote);\n\nif (global.get('notification')) {\n    mote.temperature = parseInt(msg.payload);\n    mote.payload = \"Temperature in Room 1 is exceeding the treshold. Current temperature is \" + msg.payload + \" degrees.\";\n    msg.payload = mote;\n    msg.topic = 'Room 1 alert!';\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "x": 690,
         "y": 120,
         "wires": [
             [
-                "3fab1018.e3bad"
+                "3fab1018.e3bad",
+                "882d0fdd.1b5ab"
             ]
         ]
     },
@@ -1598,7 +1507,7 @@
         "type": "debug",
         "z": "bb9dddf8.757a9",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1616,8 +1525,8 @@
         "qos": "0",
         "retain": "",
         "broker": "9ae48478.34a02",
-        "x": 660,
-        "y": 560,
+        "x": 700,
+        "y": 540,
         "wires": []
     },
     {
@@ -1628,8 +1537,8 @@
         "func": "function moteAvgTemp(moteName){\n\n    var mote = global.get(moteName);\n    var avg = parseInt(mote.sum)/parseInt(mote.count);\n    avg = Math.round(avg*10)/10;\n\n    return avg;\n}\n\nvar avg1 = moteAvgTemp('mote1');\nvar avg2 = moteAvgTemp('mote2');\nvar avg3 = moteAvgTemp('mote3');\nvar avg4 = moteAvgTemp('mote4');\n\n\nmsg.payload=\"field1=\"+avg1+\"&field2=\"+avg2+\"&field3=\"+avg3+\"&field4=\"+avg4;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 370,
-        "y": 620,
+        "x": 410,
+        "y": 600,
         "wires": [
             [
                 "c49e0d51.3e2338",
@@ -1658,8 +1567,8 @@
         "reduceInit": "",
         "reduceInitType": "num",
         "reduceFixup": "",
-        "x": 610,
-        "y": 720,
+        "x": 650,
+        "y": 700,
         "wires": [
             [
                 "4ca8bca3.3ffe54"
@@ -1674,8 +1583,8 @@
         "func": "global.set('mote1', {count: 0,sum: 0});\nglobal.set('mote2', {count: 0,sum: 0});\nglobal.set('mote3', {count: 0,sum: 0});\nglobal.set('mote4', {count: 0,sum: 0});\nmsg.payload = 'Both published';\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 770,
-        "y": 720,
+        "x": 810,
+        "y": 700,
         "wires": [
             []
         ]
@@ -1684,14 +1593,16 @@
         "id": "fb305456.5248",
         "type": "function",
         "z": "162b18ba.b6d5bf",
-        "name": "store temp 3",
-        "func": "var emptyMote={\n    count: 0,\n    sum: 0\n};\n\nvar moteName = 'mote2';\n\nvar mote = global.get(moteName) || emptyMote;\nvar count = mote.count;\nvar sum = mote.sum;\n\nsum = parseInt(sum) + parseInt(msg.payload);\ncount = count + 1;\n\nmote.sum = sum;\nmote.count = count;\nglobal.set(moteName, mote);\n\nmsg.payload = mote;\nreturn msg;",
+        "name": "store temp 2",
+        "func": "var emptyMote={\n    count: 0,\n    sum: 0\n};\n\nvar moteName = 'mote2';\n\nvar mote = global.get(moteName) || emptyMote;\nvar count = mote.count;\nvar sum = mote.sum;\n\nsum = parseInt(sum) + parseInt(msg.payload);\ncount = count + 1;\n\nmote.sum = sum;\nmote.count = count;\nglobal.set(moteName, mote);\n\nif (global.get('notification')) {\n    mote.temperature = parseInt(msg.payload);\n    mote.payload = \"Temperature in Room 2 is exceeding the treshold. Current temperature is \" + msg.payload + \" degrees.\";\n    msg.payload = mote;\n    msg.topic = 'Room 2 alert!';\n    return msg;\n}",
         "outputs": 1,
         "noerr": 0,
         "x": 690,
         "y": 260,
         "wires": [
-            []
+            [
+                "882d0fdd.1b5ab"
+            ]
         ]
     },
     {
@@ -1706,7 +1617,7 @@
         "label": "Average House Temperature",
         "chartType": "line",
         "legend": "false",
-        "xformat": "HH:mm:ss",
+        "xformat": "HH:mm",
         "interpolate": "linear",
         "nodata": "",
         "dot": false,
@@ -1714,7 +1625,7 @@
         "ymax": "50",
         "removeOlder": 1,
         "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
+        "removeOlderUnit": "86400",
         "cutout": 0,
         "useOneColor": false,
         "colors": [
@@ -1729,7 +1640,7 @@
             "#c5b0d5"
         ],
         "useOldStyle": false,
-        "x": 770,
+        "x": 790,
         "y": 100,
         "wires": [
             [],
@@ -1798,7 +1709,7 @@
         "label": "Average House Temperature",
         "chartType": "line",
         "legend": "true",
-        "xformat": "HH:mm:ss",
+        "xformat": "HH:mm",
         "interpolate": "linear",
         "nodata": "",
         "dot": false,
@@ -1806,7 +1717,7 @@
         "ymax": "50",
         "removeOlder": 1,
         "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
+        "removeOlderUnit": "86400",
         "cutout": 0,
         "useOneColor": false,
         "colors": [
@@ -1865,13 +1776,10 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "x": 110,
+        "x": 130,
         "y": 220,
         "wires": [
-            [
-                "75282cab.c99a2c",
-                "240bfbde.4317e4"
-            ]
+            []
         ]
     },
     {
@@ -1887,31 +1795,6 @@
         "wires": [
             [
                 "30a9be35.314be2"
-            ]
-        ]
-    },
-    {
-        "id": "91de6160.7ddc68",
-        "type": "ui_button",
-        "z": "bb9dddf8.757a9",
-        "name": "",
-        "group": "e0ede54c.052198",
-        "order": 2,
-        "width": "4",
-        "height": "1",
-        "passthru": false,
-        "label": "Clean house chart",
-        "color": "",
-        "bgcolor": "",
-        "icon": "fa-eraser",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 270,
-        "y": 160,
-        "wires": [
-            [
-                "75282cab.c99a2c"
             ]
         ]
     },
@@ -1932,16 +1815,113 @@
         ]
     },
     {
-        "id": "7e8aa565.76d51c",
+        "id": "31065cca.8bc58c",
+        "type": "switch",
+        "z": "bca9fdad.0a306",
+        "name": "filter KO",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "KO",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1160,
+        "y": 280,
+        "wires": [
+            [
+                "4dc9e21c.3b0824"
+            ]
+        ]
+    },
+    {
+        "id": "bf5d8cbb.081c88",
+        "type": "ui_button",
+        "z": "bca9fdad.0a306",
+        "name": "",
+        "group": "33444e6a.3cf4ea",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "get status",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 200,
+        "y": 620,
+        "wires": [
+            [
+                "f942a4e9.44c6b8"
+            ]
+        ]
+    },
+    {
+        "id": "f942a4e9.44c6b8",
+        "type": "coap request",
+        "z": "bca9fdad.0a306",
+        "method": "GET",
+        "observe": false,
+        "url": "coap://[aaaa::212:7402:2:202]/status",
+        "content-format": "application/json",
+        "raw-buffer": false,
+        "name": "",
+        "x": 420,
+        "y": 620,
+        "wires": [
+            [
+                "2b9f7bf9.a1d994",
+                "8a3b541c.b8c3f8"
+            ]
+        ]
+    },
+    {
+        "id": "2b9f7bf9.a1d994",
+        "type": "debug",
+        "z": "bca9fdad.0a306",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 630,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "8a3b541c.b8c3f8",
+        "type": "json",
+        "z": "bca9fdad.0a306",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 620,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af65f296.26d078",
         "type": "ui_button",
         "z": "bb9dddf8.757a9",
         "name": "",
-        "group": "4485a3a6.7e585c",
-        "order": 2,
-        "width": "4",
+        "group": "625d222a.1307f4",
+        "order": 0,
+        "width": "12",
         "height": "1",
         "passthru": false,
-        "label": "Clean rooms chart",
+        "label": "Clear charts",
         "color": "",
         "bgcolor": "",
         "icon": "fa-eraser",
@@ -1949,11 +1929,363 @@
         "payloadType": "str",
         "topic": "",
         "x": 270,
-        "y": 280,
+        "y": 220,
         "wires": [
             [
+                "75282cab.c99a2c",
                 "240bfbde.4317e4"
             ]
         ]
+    },
+    {
+        "id": "dd48bbc2.301ec",
+        "type": "ui_ui_control",
+        "z": "bca9fdad.0a306",
+        "name": "",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "4887328c.8e20f4"
+            ]
+        ]
+    },
+    {
+        "id": "b6a84809.e60b",
+        "type": "ui_numeric",
+        "z": "162b18ba.b6d5bf",
+        "name": "",
+        "label": "Min temperature",
+        "group": "1c34babb.506415",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "topic": "mintemp",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "step": 1,
+        "x": 390,
+        "y": 740,
+        "wires": [
+            [
+                "e9197da2.306bd8"
+            ]
+        ]
+    },
+    {
+        "id": "4495358f.6f45bc",
+        "type": "e-mail",
+        "z": "162b18ba.b6d5bf",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "name": "alizee_se90@yahoo.it",
+        "dname": "",
+        "x": 1060,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "e9197da2.306bd8",
+        "type": "function",
+        "z": "162b18ba.b6d5bf",
+        "name": "temperature range",
+        "func": "if (msg.topic == 'mintemp') {\n    global.set('minlimit', msg.payload);\n} else {\n    global.set('maxlimit', msg.payload);\n}\nvar msg = global.get('minlimit');\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670,
+        "y": 760,
+        "wires": [
+            [
+                "7830fe55.d78218"
+            ]
+        ]
+    },
+    {
+        "id": "882d0fdd.1b5ab",
+        "type": "switch",
+        "z": "162b18ba.b6d5bf",
+        "name": "range verification",
+        "property": "payload.temperature",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "minlimit",
+                "vt": "global"
+            },
+            {
+                "t": "gte",
+                "v": "maxlimit",
+                "vt": "global"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 220,
+        "wires": [
+            [
+                "b45d4041.6a34c"
+            ],
+            [
+                "b45d4041.6a34c"
+            ]
+        ]
+    },
+    {
+        "id": "7830fe55.d78218",
+        "type": "debug",
+        "z": "162b18ba.b6d5bf",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 910,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "f3b9b496.4eaa3",
+        "type": "delay",
+        "z": "162b18ba.b6d5bf",
+        "name": "",
+        "pauseType": "queue",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "minute",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "x": 1050,
+        "y": 380,
+        "wires": [
+            [
+                "4495358f.6f45bc"
+            ]
+        ]
+    },
+    {
+        "id": "e06dd040.e8c318",
+        "type": "ui_numeric",
+        "z": "162b18ba.b6d5bf",
+        "name": "",
+        "label": "Max temperature",
+        "group": "1c34babb.506415",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "topic": "maxtemp",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "step": 1,
+        "x": 390,
+        "y": 800,
+        "wires": [
+            [
+                "e9197da2.306bd8"
+            ]
+        ]
+    },
+    {
+        "id": "d75164e2.b6017",
+        "type": "inject",
+        "z": "162b18ba.b6d5bf",
+        "name": "",
+        "topic": "",
+        "payload": "40",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 800,
+        "wires": [
+            [
+                "e06dd040.e8c318"
+            ]
+        ]
+    },
+    {
+        "id": "1597b319.e05365",
+        "type": "inject",
+        "z": "162b18ba.b6d5bf",
+        "name": "",
+        "topic": "",
+        "payload": "10",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 740,
+        "wires": [
+            [
+                "b6a84809.e60b"
+            ]
+        ]
+    },
+    {
+        "id": "83cf134d.3f9cf",
+        "type": "ui_button",
+        "z": "162b18ba.b6d5bf",
+        "name": "",
+        "group": "1c34babb.506415",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Confirm",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 420,
+        "y": 880,
+        "wires": [
+            [
+                "a64342ab.e9ee6"
+            ]
+        ]
+    },
+    {
+        "id": "248f8654.bd9f32",
+        "type": "ui_button",
+        "z": "162b18ba.b6d5bf",
+        "name": "",
+        "group": "1c34babb.506415",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Cancel",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 420,
+        "y": 940,
+        "wires": [
+            [
+                "a64342ab.e9ee6"
+            ]
+        ]
+    },
+    {
+        "id": "a64342ab.e9ee6",
+        "type": "function",
+        "z": "162b18ba.b6d5bf",
+        "name": "set notification",
+        "func": "global.set('notification', msg.payload);\nif (msg.payload) {\n    msg.payload = \"ON\";\n    return msg;\n} else {\n    msg.payload = \"OFF\";\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 680,
+        "y": 940,
+        "wires": [
+            [
+                "c2ecf5e8.d45078"
+            ]
+        ]
+    },
+    {
+        "id": "b45d4041.6a34c",
+        "type": "change",
+        "z": "162b18ba.b6d5bf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "topic",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 300,
+        "wires": [
+            [
+                "f3b9b496.4eaa3",
+                "909b6c60.aed08"
+            ]
+        ]
+    },
+    {
+        "id": "909b6c60.aed08",
+        "type": "debug",
+        "z": "162b18ba.b6d5bf",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 1070,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "f8879288.6af798",
+        "type": "inject",
+        "z": "162b18ba.b6d5bf",
+        "name": "",
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 430,
+        "y": 1000,
+        "wires": [
+            [
+                "a64342ab.e9ee6"
+            ]
+        ]
+    },
+    {
+        "id": "c2ecf5e8.d45078",
+        "type": "ui_text",
+        "z": "162b18ba.b6d5bf",
+        "group": "1c34babb.506415",
+        "order": 1,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "E-mail notification",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 930,
+        "y": 940,
+        "wires": []
     }
 ]
