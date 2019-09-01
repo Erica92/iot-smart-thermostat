@@ -194,7 +194,7 @@ status_handler(void* request, void* response, uint8_t *buffer, uint16_t preferre
 	
   REST.set_header_content_type(response, REST.type.APPLICATION_JSON);
 
-  snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "{\"heating\": %u, \"air conditioning\": %u, \"ventilation\": %u}", thermostat_status.heating, thermostat_status.air_conditioning, thermostat_status.ventilation);
+  snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "[{\"heating\": %u}, {\"conditioning\": %u}, {\"ventilation\": %u}]", thermostat_status.heating, thermostat_status.air_conditioning, thermostat_status.ventilation);
   
   REST.set_response_payload(response, (uint8_t *)buffer, strlen((char *)buffer));
   //TODO bisogna gestire la CON
