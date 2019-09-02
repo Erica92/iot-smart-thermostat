@@ -30,8 +30,8 @@
 #elif WITH_COAP == 13
 #include "er-coap-13.h"
 #else
-#warning "Erbium example without CoAP-specifc functionality"
-#endif /* TODO CoAP-specific example */
+#warning "Erbium without CoAP-specifc functionality"
+#endif
 
 
 #define DEBUG 1
@@ -108,7 +108,7 @@ tempobs_periodic_handler(resource_t *r)
 
   ++obs_counter;
 
-  PRINTF("TICK %u for /%s\n", obs_counter, r->url);
+  PRINTF("Observe %u for /%s: %u\n", obs_counter, r->url, thermostat_status.temp);
 
   /* Build notification for the subscribers */
   coap_packet_t notification[1]; /* This way the packet can be treated as pointer as usual. */
@@ -131,16 +131,12 @@ RESOURCE(status, METHOD_GET, "status", "title=\"Thermostat status\";rt=\"Data\""
 void
 status_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
 {
-  PRINTF("status_handler: %u", thermostat_status.temp);
-  //char heating_status[3] = (thermostat_status.heating == 1 ? "on" : "off");
-  //char air_conditioning_status[3] = (thermostat_status.air_conditioning == 1 ? "on" : "off");
-  //char ventilation_status[3] = (thermostat_status.ventilation == 1 ? "on" : "off");
+  PRINTF("status_handler: heating %u, conditioning %u, ventilation %u\n", thermostat_status.heating, thermostat_status.air_conditioning, thermostat_status.ventilation);
   
   // Response header and payload
   REST.set_header_content_type(response, REST.type.APPLICATION_JSON);
-  snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "[{\"heating\": %u}, {\"conditioning\": %u}, {\"ventilation\": %u}]", thermostat_status.heating, thermostat_status.air_conditioning, thermostat_status.ventilation);
+  snprintf((char *)buffer, REST_MAX_CHUNK_SIZE, "[{\"heating\": %u}, {\"conditioning\": %u}, {\"ventilation\": %u}]", 	thermostat_status.heating, thermostat_status.air_conditioning, thermostat_status.ventilation);
   REST.set_response_payload(response, (uint8_t *)buffer, strlen((char *)buffer));
-  //TODO bisogna gestire la CON
 }
 
 #endif /* REST_RES_STATUS */
@@ -150,12 +146,12 @@ status_handler(void* request, void* response, uint8_t *buffer, uint16_t preferre
 /******************************************************************************/
 
 #if REST_RES_LEDS
-/* This method controls the LEDs of the sensor, by activating or deactivating them according to the received data.
+/* This resource controls the LEDs of the sensor, by activating or deactivating them according to the received data.
    The request URL contains the color of the requested LED.
    The POST variable mode contains the command (ON or OFF) for the chosen LED.
    Each color corresponds to a variable of the thermostat: (r) heating, (g) ventilation, (b) air conditioning. 
-   The method returns an error when the user tries to enable both air conditioning and heating. */
-RESOURCE(leds, METHOD_POST | METHOD_PUT , "leds", "title=\"LEDs: ?color=r|g|b, POST/PUT mode=on|off\";rt=\"Control\"");
+   The method returns an error when the user tries to activate both air conditioning and heating. */
+RESOURCE(leds, METHOD_POST , "leds", "title=\"LEDs: ?color=r|g|b, POST mode=on|off\";rt=\"Control\"");
 
 void
 leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
@@ -165,26 +161,28 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
   const char *msg = NULL;
   uint8_t led = 0;
   int success = 1;
-  uint8_t* unit_type_p = NULL;	//mantain the pointer to the type of engine to control
+  //a pointer to the type of engine (heating, air conditioning, ventilation)
+  //that is the object of the request
+  uint8_t* unit_type_p = NULL;
   
   /* Retrieve the query variable for color */
   size_t query_variable = REST.get_query_variable(request, "color", &color);
   /* Retrieve the query variable for mode on/off */
   size_t post_variable = REST.get_post_variable(request, "mode", &mode);
   
-
+	//Check which kind of engine have to be turn on/off
   if (query_variable) {
-    //PRINTF("color %.*s\n", len, color);
+    //PRINTF("color %.*s\n", query_variable, color);
 
     if (strncmp(color, "r", query_variable)==0) { //heating
       led = LEDS_RED;
-      unit_type_p = &thermostat_status.heating;
+      unit_type_p = &thermostat_status.heating;			//take the reference of the heating variable
     } else if(strncmp(color,"g", query_variable)==0) { //ventilation
       led = LEDS_GREEN;
-      unit_type_p = &thermostat_status.ventilation;
+      unit_type_p = &thermostat_status.ventilation;	//take the reference of the ventilation variable
     } else if (strncmp(color,"b", query_variable)==0) { //air conditioning
       led = LEDS_BLUE;
-      unit_type_p = &thermostat_status.air_conditioning;
+      unit_type_p = &thermostat_status.air_conditioning;	//take the reference of the air conditioning variable
     } else {
       success = 0;
     }
@@ -192,23 +190,30 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
     success = 0;
   }
 
+	//If the type of engine has been recognized, Check the kind of request (turn on/turn off) 
   if (success && post_variable) {
     //PRINTF("mode %s\n", mode);
 
     if (strncmp(mode, "on", post_variable)==0) {
       // Turn on the led and the corrisponding engine
-      if ((led == LEDS_RED && thermostat_status.air_conditioning) || (led == LEDS_BLUE && thermostat_status.heating)) {
-        success = 0; // Heating and Air conditioning cannot run simultaneously
+      
+      // Check if Mutual exclusion of Heating and Air Conditioning is respected. If not, then error.
+      // Heating and Air conditioning cannot run simultaneously
+      if ((led == LEDS_RED && thermostat_status.air_conditioning) 
+      					|| (led == LEDS_BLUE && thermostat_status.heating)) {
+      	PRINTF("Mutual exclusion violated\n");
+        success = 0; 
       } else {
-        leds_on(led);
-        msg = "mode=on";
-        *unit_type_p = 1;
+      	// Turn off the led and the corrisponding engine
+        leds_on(led);				//turn on the selected led
+        msg = "mode=on";		//set the message payload
+        *unit_type_p = 1;		//turn the selected engine on
       }
     } else if (strncmp(mode, "off", post_variable)==0) {
       // Turn off the led and the corrisponding engine
-      leds_off(led);
-      msg = "mode=off";
-      *unit_type_p = 0;
+      leds_off(led);				//turn on the selected led
+      msg = "mode=off";			//set the message payload
+      *unit_type_p = 0;			//turn the selected engine on
     } else {
       success = 0;
     }
@@ -218,10 +223,12 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
   
   // Return the response depending on the success value
   if (!success) {
+  PRINTF("leds_handler: error\n");
     REST.set_response_status(response, REST.status.NOT_ACCEPTABLE);
     msg = "KO";
     REST.set_response_payload(response, msg, strlen(msg));
   } else if (success) {
+  	PRINTF("leds_handler: color %.*s mode %s\n", query_variable, color, mode);
     REST.set_header_content_type(response, REST.type.TEXT_PLAIN);
     REST.set_response_payload(response, msg, strlen(msg));
   }
@@ -258,16 +265,18 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
 
   /* Activate the application-specific resources. */
 
-/* Codice progetto */
+/* Resource for retrieving the current temperature */
 #if REST_RES_TEMP
-  SENSORS_ACTIVATE(sht11_sensor);
+  //SENSORS_ACTIVATE(sht11_sensor);
   rest_activate_resource(&resource_temperature);
 #endif
 
+/* Resource for retrieving the status of the thermostat */
 #if REST_RES_STATUS
   rest_activate_resource(&resource_status);
 #endif
 
+/* Resource for observe temperature */
 #if REST_RES_PUSHING
   rest_activate_periodic_resource(&periodic_resource_tempobs);
 #endif
@@ -278,13 +287,14 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
 #endif /* PLATFORM_HAS_LEDS */
   
   /* Thermostat initialization 
-     Generates a random value for the temperature (between 10 and 30) */
+     Set all the engine to off and generates a random value 
+     for the temperature (between 10 and 30) */
   thermostat_status.heating = 0;
   thermostat_status.air_conditioning = 0;
   thermostat_status.ventilation = 0;
   thermostat_status.temp = (random_rand() % rand_max) + 10;
   
-  PRINTF("Randon temperature: %u\n", thermostat_status.temp);
+  PRINTF("Random temperature: %u\n", thermostat_status.temp);
   
   static struct etimer timer;
   
@@ -309,7 +319,7 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
         thermostat_status.temp -= 1 * vent_multiplier;
       }
     	
-      // TODO alert per temperatura fuori range
+      // Reset timer
       etimer_reset(&timer);
     }
     
