@@ -33,6 +33,7 @@
 #warning "Erbium example without CoAP-specifc functionality"
 #endif /* TODO CoAP-specific example */
 
+
 #define DEBUG 1
 #if DEBUG
 #define PRINTF(...) printf(__VA_ARGS__)
