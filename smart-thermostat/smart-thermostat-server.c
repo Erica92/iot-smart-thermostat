@@ -48,6 +48,10 @@
 // Limit for the random number generator (used for temperature)
 const int rand_max = 20;
 
+// Limit the temperature that the thermostat can sense, for avoiding exeeding short int size
+const int max_sensing_temp = 60;
+const int min_sensing_temp = 1;
+
 // Structure describing the current status of the thermostat
 typedef struct thermostat {
 	uint8_t heating;
@@ -311,11 +315,11 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
         vent_multiplier = 2;
       }
       
-      if(thermostat_status.heating == 1 && thermostat_status.temp < 50){ // Heating ON
+      if(thermostat_status.heating == 1 && thermostat_status.temp < max_sensing_temp){ // Heating ON
         thermostat_status.temp += 1 * vent_multiplier;
       }
     	
-      if(thermostat_status.air_conditioning == 1 && thermostat_status.temp > 1){ // Air conditioning ON
+      if(thermostat_status.air_conditioning == 1 && thermostat_status.temp > min_sensing_temp){ // Air conditioning ON
         thermostat_status.temp -= 1 * vent_multiplier;
       }
     	
