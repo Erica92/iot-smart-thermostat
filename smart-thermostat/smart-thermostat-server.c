@@ -290,7 +290,6 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
   PRINTF("IP+UDP header: %u\n", UIP_IPUDPH_LEN);
   PRINTF("REST max chunk: %u\n", REST_MAX_CHUNK_SIZE);
 
-
   /* Initialize the REST engine. */
   rest_init_engine();
 
@@ -327,9 +326,11 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
   
   PRINTF("Random temperature: %u\n", thermostat_status.temp);
   
+  // Declaration of the timer
   static struct etimer timer;
   
   /* Thermostat internal logic */
+  // Set and start the timer for increasing or decrasing the temperature, if necessary
   etimer_set(&timer, CLOCK_SECOND * 20);
   
   while(1) {
@@ -337,15 +338,18 @@ PROCESS_THREAD(thermostat_server_process, ev, data)
     
     if(ev == PROCESS_EVENT_TIMER){
       unsigned short vent_multiplier = 1;
+      // If the ventilation is on, the multiplier is set to 2
       if(thermostat_status.ventilation == 1) {
         vent_multiplier = 2;
       }
-      
+      // If the active engine is heating and the maximum limit is not reached, the temperature increases
       if(thermostat_status.heating == 1 && thermostat_status.temp < max_sensing_temp){ // Heating ON
+        PRINTF("Temperature increased: +%u\n", vent_multiplier);
         thermostat_status.temp += 1 * vent_multiplier;
       }
-    	
+      // If the active engine is air conditioning and the minimum limit is not reached yet, the temperature decreases
       if(thermostat_status.air_conditioning == 1 && thermostat_status.temp > min_sensing_temp){ // Air conditioning ON
+        PRINTF("Temperature decreased: -%u\n", vent_multiplier);
         thermostat_status.temp -= 1 * vent_multiplier;
       }
       
