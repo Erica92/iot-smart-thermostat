@@ -203,6 +203,8 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
   /* Retrieve the query variable for mode on/off */
   size_t post_variable = REST.get_post_variable(request, "mode", &mode);
   
+  PRINTF("leds_handler: color %.*s mode %s\n", query_variable, color, mode);
+  
   //Check which kind of engine have to be turn on/off
   if (query_variable) {
     //PRINTF("color %.*s\n", query_variable, color);
@@ -255,12 +257,12 @@ leds_handler(void* request, void* response, uint8_t *buffer, uint16_t preferred_
   
   // Return the response depending on the success value
   if (!success) {
-    PRINTF("leds_handler: error\n");
+    PRINTF("leds_handler: request refused\n");
     REST.set_response_status(response, REST.status.NOT_ACCEPTABLE);
     msg = "KO";
     REST.set_response_payload(response, msg, strlen(msg));
   } else if (success) {
-    PRINTF("leds_handler: color %.*s mode %s\n", query_variable, color, mode);
+    PRINTF("leds_handler: request ok\n", query_variable, color, mode);
     REST.set_header_content_type(response, REST.type.TEXT_PLAIN);
     REST.set_response_payload(response, msg, strlen(msg));
   }
